@@ -1,0 +1,36 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.45 system-ui, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; background: #f4f5f7; color: #1d2330; }
+header { display: flex; align-items: baseline; gap: 1rem; padding: .8rem 1.5rem; background: #1d2330; color: #fff; }
+header h1 { font-size: 1.15rem; margin: 0; }
+header .muted { color: #aab3c5; }
+main { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem 1.5rem; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+.panel { background: #fff; border-radius: 10px; padding: 1rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+h2 { margin: 0 0 .8rem; font-size: 1.05rem; }
+h3 { font-size: .95rem; margin: 1.2rem 0 .4rem; }
+.row { display: flex; gap: .5rem; align-items: center; margin-bottom: .6rem; flex-wrap: wrap; }
+button, select, input { font: inherit; padding: .4rem .7rem; border: 1px solid #c8cdd6; border-radius: 6px; background: #fff; }
+button { cursor: pointer; }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: #2456d6; color: #fff; border-color: #2456d6; }
+button.recording { background: #d63a24; color: #fff; border-color: #d63a24; }
+#say { flex: 1; min-width: 12rem; }
+.muted { color: #7a8394; }
+.transcript { min-height: 14rem; max-height: 26rem; overflow-y: auto; background: #fafbfc; border: 1px solid #e3e6eb; border-radius: 8px; padding: .6rem .8rem; }
+.transcript p { margin: .25rem 0; }
+.transcript .partial { color: #7a8394; font-style: italic; }
+.legend { font-size: .85rem; color: #5b6475; margin: -.3rem 0 .8rem; }
+.field { display: grid; grid-template-columns: 7rem 1fr 9rem; gap: .5rem; align-items: center; margin-bottom: .45rem; }
+.field label { font-weight: 600; }
+.field select { width: 100%; }
+.field.suggested select { background: #eaf7ee; border-color: #6cbf84; }
+.field.human select { background: #eef2fd; border-color: #6d8de0; }
+.tag { display: inline-block; font-size: .78rem; padding: .05rem .45rem; border-radius: 999px; }
+.tag.suggested { background: #d5f0dd; color: #1c6b34; }
+.tag.human { background: #dbe4fb; color: #23439c; }
+.badge button { font-size: .75rem; padding: .05rem .4rem; margin-left: .3rem; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: .3rem .4rem; border-bottom: 1px solid #edf0f3; }
+th { color: #5b6475; font-weight: 600; }
+#result { font-weight: 600; color: #1c6b34; }
+#result.error { color: #b3261e; }

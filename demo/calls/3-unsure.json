@@ -1,0 +1,9 @@
+{
+  "title": "Unsure: damage not known, the person decides",
+  "caller": "Demo caller C",
+  "lines": [
+    {"text": "Hello, can I get a quote for a headlight on a Ridge pickup?", "pause": 0.8},
+    {"text": "It's on the driver's side, but I haven't seen how bad it is yet.", "pause": 0.8},
+    {"text": "I'll take photos and call you again later.", "pause": 0.5}
+  ]
+}

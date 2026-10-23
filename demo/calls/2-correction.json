@@ -1,0 +1,10 @@
+{
+  "title": "Correction mid-call: left, no, right",
+  "caller": "Demo caller B",
+  "lines": [
+    {"text": "Hello, I need a fender for a Vera.", "pause": 0.8},
+    {"text": "Left side.", "pause": 0.6},
+    {"text": "Oh wait, no, it's on the passenger side, the right one.", "pause": 0.8},
+    {"text": "It's dented quite a bit.", "pause": 0.5}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Simple: one car, one zone, light damage",
+  "caller": "Demo caller A",
+  "lines": [
+    {"text": "Hi there, I'd like to get a parts quote.", "pause": 0.8},
+    {"text": "It's an Atto SUV, we scratched the front bumper a little.", "pause": 0.8},
+    {"text": "I think just the cover needs replacing, please send me a quote.", "pause": 0.5}
+  ]
+}

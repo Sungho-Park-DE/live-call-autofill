@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>call-to-quote</title>
+<link rel="stylesheet" href="/static/style.css?v=1">
+</head>
+<body>
+<header>
+  <h1>call-to-quote</h1>
+  <span id="engines" class="muted"></span>
+</header>
+<main>
+  <section id="call-panel" class="panel">
+    <h2>Call</h2>
+    <div class="row">
+      <button id="start">Start call</button>
+      <select id="demo"></select>
+      <button id="play" disabled>Play demo call</button>
+    </div>
+    <div class="row">
+      <button id="mic" disabled title="Needs a real speech-to-text engine (CTQ_STT)">🎙 Mic</button>
+      <input id="say" placeholder="…or type what the caller says, Enter to send" disabled>
+    </div>
+    <div id="transcript" class="transcript"><p class="muted">No call yet.</p></div>
+  </section>
+  <section id="draft-panel" class="panel">
+    <h2>Quote draft</h2>
+    <p class="legend"><span class="tag suggested">suggested</span> filled from the call · <span class="tag human">you</span> set by the person, never overwritten</p>
+    <form id="fields"></form>
+    <h3>Parts <span id="missing" class="muted"></span></h3>
+    <table id="lines"><thead><tr><th>Part no.</th><th>Name</th><th>Qty</th></tr></thead><tbody></tbody></table>
+    <div class="row">
+      <button id="confirm" class="primary" disabled>Confirm quote</button>
+      <span id="result"></span>
+    </div>
+  </section>
+</main>
+<script type="module" src="/static/app.js?v=1"></script>
+</body>
+</html>
