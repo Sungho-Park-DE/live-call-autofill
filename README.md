@@ -61,6 +61,8 @@ python -m analysis    # cases, shares, tertiles, 30% vs 50% backtest → app/dat
 
 The generator encodes only mechanisms (an impact has a position, a side and a depth; damage spreads to neighbouring zones as depth grows; deeper damage replaces more parts) plus the traps real data has: a second claim for the same car a few days later, and consumable lines that belong to no zone. It never contains target shares. The analysis does not know the mechanisms; it only sees invoice lines. In the app, the **Accident** concept reads `zones.json`: once the draft has a zone and a damage level, the companion zones appear under the parts as ticked lines with their share and sample size, and the person unticks what does not apply.
 
+![Companion zones under the parts: share and sample size, unticked lines stay out of the quote](docs/img/demo-companions.png)
+
 On the invented data (train 2021–2024, test 2025, 448 test cases) the same trade-off shows up as in the shop: companions at **0.30** give precision / recall **0.64 / 0.89**, at 0.50 they give 0.75 / 0.73; pre-filling every zone of the position gives 0.43 / 0.76. Merging supplements and dropping consumables, and where each matters, are in the [data report](docs/data-report.md).
 
 The weakest point is circularity: the invented data was designed by the same person who wrote the analysis, so the analysis can only find structure that was planted as mechanism. That is why the invented-data numbers are in [docs/data-report.md](docs/data-report.md) and the numbers measured on the real shop are listed separately below.
