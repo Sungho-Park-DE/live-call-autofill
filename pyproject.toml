@@ -18,6 +18,6 @@ dependencies = ["fastapi>=0.115", "uvicorn[standard]>=0.30"]
 test = ["pytest>=8", "httpx>=0.27"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "app"]
+testpaths = ["tests", "app", "datagen", "analysis"]
 addopts = "-p no:cacheprovider"
 filterwarnings = ["ignore:Using `httpx`"]
