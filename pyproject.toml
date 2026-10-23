@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 include = ["app*"]
 
 [tool.setuptools.package-data]
-app = ["static/*"]
+app = ["static/*", "data/*.json"]
 
 [project]
 name = "call-to-quote"
