@@ -1,0 +1,2964 @@
+{
+ "threshold": 0.3,
+ "min_n": 20,
+ "merge_days": 30,
+ "source": "invented claims from datagen, see docs/data-report.md",
+ "cells": [
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "left",
+   "severity": "minor",
+   "n": 44,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 0.52
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.39
+    },
+    {
+     "zone": "grille",
+     "share": 0.32
+    },
+    {
+     "zone": "front fender",
+     "share": 0.32
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "left",
+   "severity": "moderate",
+   "n": 43,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "grille",
+     "share": 0.98
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.88
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.79
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.63
+    },
+    {
+     "zone": "front fender",
+     "share": 0.56
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "left",
+   "severity": "severe",
+   "n": 28,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.96
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front fender",
+     "share": 0.89
+    },
+    {
+     "zone": "hood",
+     "share": 0.68
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.46
+    },
+    {
+     "zone": "front door",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "right",
+   "severity": "minor",
+   "n": 53,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "fog lamp",
+     "share": 0.53
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.32
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.32
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "right",
+   "severity": "moderate",
+   "n": 54,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 0.91
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.83
+    },
+    {
+     "zone": "grille",
+     "share": 0.8
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.78
+    },
+    {
+     "zone": "front fender",
+     "share": 0.57
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "right",
+   "severity": "severe",
+   "n": 29,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.97
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.9
+    },
+    {
+     "zone": "front fender",
+     "share": 0.76
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.66
+    },
+    {
+     "zone": "hood",
+     "share": 0.62
+    },
+    {
+     "zone": "front door",
+     "share": 0.55
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "both",
+   "severity": "minor",
+   "n": 7,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.57
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "both",
+   "severity": "moderate",
+   "n": 57,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "fog lamp",
+     "share": 0.91
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.89
+    },
+    {
+     "zone": "grille",
+     "share": 0.86
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.65
+    },
+    {
+     "zone": "front fender",
+     "share": 0.39
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "both",
+   "severity": "severe",
+   "n": 141,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.99
+    },
+    {
+     "zone": "grille",
+     "share": 0.99
+    },
+    {
+     "zone": "front fender",
+     "share": 0.84
+    },
+    {
+     "zone": "hood",
+     "share": 0.68
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.53
+    },
+    {
+     "zone": "front door",
+     "share": 0.37
+    },
+    {
+     "zone": "radiator support",
+     "share": 0.35
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "front",
+   "side": "none",
+   "severity": "minor",
+   "n": 97,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front bumper",
+     "share": 0.76
+    },
+    {
+     "zone": "grille",
+     "share": 0.4
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "left",
+   "severity": "minor",
+   "n": 26,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.73
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.46
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "left",
+   "severity": "moderate",
+   "n": 44,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.86
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.75
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.32
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "left",
+   "severity": "severe",
+   "n": 39,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.72
+    },
+    {
+     "zone": "rear door",
+     "share": 0.44
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "right",
+   "severity": "minor",
+   "n": 48,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.79
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.5
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.31
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "right",
+   "severity": "moderate",
+   "n": 33,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.97
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.64
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.55
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "right",
+   "severity": "severe",
+   "n": 20,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.8
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "both",
+   "severity": "minor",
+   "n": 4,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "both",
+   "severity": "moderate",
+   "n": 32,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.75
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.47
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.44
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "both",
+   "severity": "severe",
+   "n": 105,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.99
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.89
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.88
+    },
+    {
+     "zone": "rear door",
+     "share": 0.47
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "rear",
+   "side": "none",
+   "severity": "minor",
+   "n": 98,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 0.91
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "side",
+   "side": "left",
+   "severity": "minor",
+   "n": 28,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "quarter panel",
+     "share": 0.64
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "side",
+   "side": "left",
+   "severity": "moderate",
+   "n": 30,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.63
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.57
+    },
+    {
+     "zone": "rear door",
+     "share": 0.47
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.3
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "side",
+   "side": "left",
+   "severity": "severe",
+   "n": 28,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.89
+    },
+    {
+     "zone": "rear door",
+     "share": 0.82
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.68
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.54
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.43
+    },
+    {
+     "zone": "front fender",
+     "share": 0.32
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "side",
+   "side": "right",
+   "severity": "minor",
+   "n": 21,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "quarter panel",
+     "share": 0.48
+    },
+    {
+     "zone": "rear door",
+     "share": 0.33
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "side",
+   "side": "right",
+   "severity": "moderate",
+   "n": 21,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "side mirror",
+     "share": 0.71
+    },
+    {
+     "zone": "rear door",
+     "share": 0.62
+    },
+    {
+     "zone": "front door",
+     "share": 0.38
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "side",
+   "side": "right",
+   "severity": "severe",
+   "n": 25,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.92
+    },
+    {
+     "zone": "rear door",
+     "share": 0.84
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.72
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.56
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.56
+    },
+    {
+     "zone": "front fender",
+     "share": 0.36
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Atto",
+   "position": "side",
+   "side": "both",
+   "severity": "severe",
+   "n": 19,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 1.0
+    },
+    {
+     "zone": "rear door",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.95
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.89
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.84
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.68
+    },
+    {
+     "zone": "front fender",
+     "share": 0.58
+    },
+    {
+     "zone": "hood",
+     "share": 0.37
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "left",
+   "severity": "minor",
+   "n": 43,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front fender",
+     "share": 0.42
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.4
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.3
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "left",
+   "severity": "moderate",
+   "n": 45,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "fog lamp",
+     "share": 0.91
+    },
+    {
+     "zone": "grille",
+     "share": 0.78
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.76
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.62
+    },
+    {
+     "zone": "front fender",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "left",
+   "severity": "severe",
+   "n": 28,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.96
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front fender",
+     "share": 0.89
+    },
+    {
+     "zone": "hood",
+     "share": 0.68
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.46
+    },
+    {
+     "zone": "front door",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "right",
+   "severity": "minor",
+   "n": 38,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front bumper",
+     "share": 0.47
+    },
+    {
+     "zone": "front fender",
+     "share": 0.39
+    },
+    {
+     "zone": "grille",
+     "share": 0.37
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.37
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "right",
+   "severity": "moderate",
+   "n": 49,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "fog lamp",
+     "share": 0.96
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.88
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.78
+    },
+    {
+     "zone": "grille",
+     "share": 0.78
+    },
+    {
+     "zone": "front fender",
+     "share": 0.41
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "right",
+   "severity": "severe",
+   "n": 29,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.97
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.9
+    },
+    {
+     "zone": "front fender",
+     "share": 0.76
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.66
+    },
+    {
+     "zone": "hood",
+     "share": 0.62
+    },
+    {
+     "zone": "front door",
+     "share": 0.55
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "both",
+   "severity": "minor",
+   "n": 7,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.57
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "both",
+   "severity": "moderate",
+   "n": 34,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 0.97
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.97
+    },
+    {
+     "zone": "grille",
+     "share": 0.85
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.5
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "both",
+   "severity": "severe",
+   "n": 88,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "grille",
+     "share": 1.0
+    },
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.95
+    },
+    {
+     "zone": "front fender",
+     "share": 0.82
+    },
+    {
+     "zone": "hood",
+     "share": 0.73
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.47
+    },
+    {
+     "zone": "front door",
+     "share": 0.31
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "front",
+   "side": "none",
+   "severity": "minor",
+   "n": 83,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front bumper",
+     "share": 0.88
+    },
+    {
+     "zone": "grille",
+     "share": 0.37
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "left",
+   "severity": "minor",
+   "n": 37,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.84
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.57
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "left",
+   "severity": "moderate",
+   "n": 28,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 0.89
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.89
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.68
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.57
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "left",
+   "severity": "severe",
+   "n": 39,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.72
+    },
+    {
+     "zone": "rear door",
+     "share": 0.44
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "right",
+   "severity": "minor",
+   "n": 38,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.71
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.45
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.39
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "right",
+   "severity": "moderate",
+   "n": 29,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.97
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.69
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.62
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "right",
+   "severity": "severe",
+   "n": 42,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.76
+    },
+    {
+     "zone": "rear door",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "both",
+   "severity": "minor",
+   "n": 4,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "both",
+   "severity": "moderate",
+   "n": 21,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.62
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.38
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.33
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "both",
+   "severity": "severe",
+   "n": 64,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.97
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.94
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.89
+    },
+    {
+     "zone": "rear door",
+     "share": 0.45
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "rear",
+   "side": "none",
+   "severity": "minor",
+   "n": 75,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 0.93
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "side",
+   "side": "left",
+   "severity": "minor",
+   "n": 21,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "side mirror",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "side",
+   "side": "left",
+   "severity": "moderate",
+   "n": 26,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.62
+    },
+    {
+     "zone": "rear door",
+     "share": 0.58
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.54
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "side",
+   "side": "left",
+   "severity": "severe",
+   "n": 49,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.9
+    },
+    {
+     "zone": "rear door",
+     "share": 0.82
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.71
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    },
+    {
+     "zone": "front fender",
+     "share": 0.35
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.35
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "side",
+   "side": "right",
+   "severity": "minor",
+   "n": 27,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "quarter panel",
+     "share": 0.37
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "side",
+   "side": "right",
+   "severity": "moderate",
+   "n": 27,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.74
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.63
+    },
+    {
+     "zone": "rear door",
+     "share": 0.41
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.33
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "side",
+   "side": "right",
+   "severity": "severe",
+   "n": 47,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.87
+    },
+    {
+     "zone": "rear door",
+     "share": 0.85
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.74
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    },
+    {
+     "zone": "front fender",
+     "share": 0.43
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Vera",
+   "position": "side",
+   "side": "both",
+   "severity": "severe",
+   "n": 19,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 1.0
+    },
+    {
+     "zone": "rear door",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.95
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.89
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.84
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.68
+    },
+    {
+     "zone": "front fender",
+     "share": 0.58
+    },
+    {
+     "zone": "hood",
+     "share": 0.37
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "left",
+   "severity": "minor",
+   "n": 105,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 0.47
+    },
+    {
+     "zone": "front fender",
+     "share": 0.35
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.34
+    },
+    {
+     "zone": "grille",
+     "share": 0.3
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "left",
+   "severity": "moderate",
+   "n": 106,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "grille",
+     "share": 0.9
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.9
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.71
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.68
+    },
+    {
+     "zone": "front fender",
+     "share": 0.43
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "left",
+   "severity": "severe",
+   "n": 28,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.96
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front fender",
+     "share": 0.89
+    },
+    {
+     "zone": "hood",
+     "share": 0.68
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.46
+    },
+    {
+     "zone": "front door",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "right",
+   "severity": "minor",
+   "n": 26,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front fender",
+     "share": 0.42
+    },
+    {
+     "zone": "grille",
+     "share": 0.38
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.35
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.35
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "right",
+   "severity": "moderate",
+   "n": 30,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.83
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.77
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.73
+    },
+    {
+     "zone": "front fender",
+     "share": 0.37
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "right",
+   "severity": "severe",
+   "n": 29,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.97
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.9
+    },
+    {
+     "zone": "front fender",
+     "share": 0.76
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.66
+    },
+    {
+     "zone": "hood",
+     "share": 0.62
+    },
+    {
+     "zone": "front door",
+     "share": 0.55
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "both",
+   "severity": "minor",
+   "n": 7,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.57
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "both",
+   "severity": "moderate",
+   "n": 106,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 0.92
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.92
+    },
+    {
+     "zone": "grille",
+     "share": 0.87
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.56
+    },
+    {
+     "zone": "front fender",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "both",
+   "severity": "severe",
+   "n": 34,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "grille",
+     "share": 1.0
+    },
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.91
+    },
+    {
+     "zone": "front fender",
+     "share": 0.76
+    },
+    {
+     "zone": "hood",
+     "share": 0.65
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.35
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "front",
+   "side": "none",
+   "severity": "minor",
+   "n": 63,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "front bumper",
+     "share": 0.65
+    },
+    {
+     "zone": "grille",
+     "share": 0.48
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "left",
+   "severity": "minor",
+   "n": 78,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.78
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.55
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.31
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "left",
+   "severity": "moderate",
+   "n": 78,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.96
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.88
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.64
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "left",
+   "severity": "severe",
+   "n": 39,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.72
+    },
+    {
+     "zone": "rear door",
+     "share": 0.44
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "right",
+   "severity": "minor",
+   "n": 26,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.81
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.46
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "right",
+   "severity": "moderate",
+   "n": 80,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.99
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.93
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.62
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.56
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "right",
+   "severity": "severe",
+   "n": 42,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.76
+    },
+    {
+     "zone": "rear door",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "both",
+   "severity": "minor",
+   "n": 4,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "both",
+   "severity": "moderate",
+   "n": 58,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.71
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.41
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.4
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "both",
+   "severity": "severe",
+   "n": 184,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.98
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.88
+    },
+    {
+     "zone": "rear door",
+     "share": 0.44
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "rear",
+   "side": "none",
+   "severity": "minor",
+   "n": 47,
+   "scope": "model",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 0.98
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "side",
+   "side": "left",
+   "severity": "minor",
+   "n": 63,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "quarter panel",
+     "share": 0.43
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "side",
+   "side": "left",
+   "severity": "moderate",
+   "n": 69,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.59
+    },
+    {
+     "zone": "rear door",
+     "share": 0.55
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.54
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "side",
+   "side": "left",
+   "severity": "severe",
+   "n": 49,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.9
+    },
+    {
+     "zone": "rear door",
+     "share": 0.82
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.71
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    },
+    {
+     "zone": "front fender",
+     "share": 0.35
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.35
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "side",
+   "side": "right",
+   "severity": "minor",
+   "n": 67,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "quarter panel",
+     "share": 0.39
+    },
+    {
+     "zone": "rear door",
+     "share": 0.31
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "side",
+   "side": "right",
+   "severity": "moderate",
+   "n": 66,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "side mirror",
+     "share": 0.62
+    },
+    {
+     "zone": "front door",
+     "share": 0.59
+    },
+    {
+     "zone": "rear door",
+     "share": 0.53
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "side",
+   "side": "right",
+   "severity": "severe",
+   "n": 47,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.87
+    },
+    {
+     "zone": "rear door",
+     "share": 0.85
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.74
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    },
+    {
+     "zone": "front fender",
+     "share": 0.43
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "Ridge",
+   "position": "side",
+   "side": "both",
+   "severity": "severe",
+   "n": 19,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 1.0
+    },
+    {
+     "zone": "rear door",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.95
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.89
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.84
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.68
+    },
+    {
+     "zone": "front fender",
+     "share": 0.58
+    },
+    {
+     "zone": "hood",
+     "share": 0.37
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "left",
+   "severity": "minor",
+   "n": 105,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 0.47
+    },
+    {
+     "zone": "front fender",
+     "share": 0.35
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.34
+    },
+    {
+     "zone": "grille",
+     "share": 0.3
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "left",
+   "severity": "moderate",
+   "n": 106,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "grille",
+     "share": 0.9
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.9
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.71
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.68
+    },
+    {
+     "zone": "front fender",
+     "share": 0.43
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "left",
+   "severity": "severe",
+   "n": 28,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.96
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front fender",
+     "share": 0.89
+    },
+    {
+     "zone": "hood",
+     "share": 0.68
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.46
+    },
+    {
+     "zone": "front door",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "right",
+   "severity": "minor",
+   "n": 117,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "fog lamp",
+     "share": 0.4
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.34
+    },
+    {
+     "zone": "front fender",
+     "share": 0.34
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.32
+    },
+    {
+     "zone": "grille",
+     "share": 0.32
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "right",
+   "severity": "moderate",
+   "n": 133,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "fog lamp",
+     "share": 0.88
+    },
+    {
+     "zone": "headlamp",
+     "share": 0.86
+    },
+    {
+     "zone": "grille",
+     "share": 0.82
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.77
+    },
+    {
+     "zone": "front fender",
+     "share": 0.47
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "right",
+   "severity": "severe",
+   "n": 29,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.97
+    },
+    {
+     "zone": "grille",
+     "share": 0.93
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.9
+    },
+    {
+     "zone": "front fender",
+     "share": 0.76
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.66
+    },
+    {
+     "zone": "hood",
+     "share": 0.62
+    },
+    {
+     "zone": "front door",
+     "share": 0.55
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "both",
+   "severity": "minor",
+   "n": 7,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.57
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "both",
+   "severity": "moderate",
+   "n": 106,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 0.92
+    },
+    {
+     "zone": "fog lamp",
+     "share": 0.92
+    },
+    {
+     "zone": "grille",
+     "share": 0.87
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.56
+    },
+    {
+     "zone": "front fender",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "both",
+   "severity": "severe",
+   "n": 263,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "headlamp",
+     "share": 1.0
+    },
+    {
+     "zone": "fog lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "grille",
+     "share": 0.99
+    },
+    {
+     "zone": "front bumper",
+     "share": 0.97
+    },
+    {
+     "zone": "front fender",
+     "share": 0.82
+    },
+    {
+     "zone": "hood",
+     "share": 0.69
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.49
+    },
+    {
+     "zone": "front door",
+     "share": 0.33
+    },
+    {
+     "zone": "radiator support",
+     "share": 0.31
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "front",
+   "side": "none",
+   "severity": "minor",
+   "n": 243,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front bumper",
+     "share": 0.77
+    },
+    {
+     "zone": "grille",
+     "share": 0.41
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "left",
+   "severity": "minor",
+   "n": 78,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.78
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.55
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.31
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "left",
+   "severity": "moderate",
+   "n": 78,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.96
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.88
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.64
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "left",
+   "severity": "severe",
+   "n": 39,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.72
+    },
+    {
+     "zone": "rear door",
+     "share": 0.44
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "right",
+   "severity": "minor",
+   "n": 112,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.77
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.46
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "right",
+   "severity": "moderate",
+   "n": 80,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 0.99
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.93
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.62
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.56
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "right",
+   "severity": "severe",
+   "n": 42,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.76
+    },
+    {
+     "zone": "rear door",
+     "share": 0.36
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "both",
+   "severity": "minor",
+   "n": 4,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "both",
+   "severity": "moderate",
+   "n": 58,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.71
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.41
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.4
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "both",
+   "severity": "severe",
+   "n": 184,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "tail lamp",
+     "share": 1.0
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.98
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.9
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.88
+    },
+    {
+     "zone": "rear door",
+     "share": 0.44
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "rear",
+   "side": "none",
+   "severity": "minor",
+   "n": 220,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "rear bumper",
+     "share": 0.93
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "side",
+   "side": "left",
+   "severity": "minor",
+   "n": 63,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "quarter panel",
+     "share": 0.43
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "side",
+   "side": "left",
+   "severity": "moderate",
+   "n": 69,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.59
+    },
+    {
+     "zone": "rear door",
+     "share": 0.55
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.54
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "side",
+   "side": "left",
+   "severity": "severe",
+   "n": 49,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.9
+    },
+    {
+     "zone": "rear door",
+     "share": 0.82
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.71
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    },
+    {
+     "zone": "front fender",
+     "share": 0.35
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.35
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "side",
+   "side": "right",
+   "severity": "minor",
+   "n": 67,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "quarter panel",
+     "share": 0.39
+    },
+    {
+     "zone": "rear door",
+     "share": 0.31
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "side",
+   "side": "right",
+   "severity": "moderate",
+   "n": 66,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "side mirror",
+     "share": 0.62
+    },
+    {
+     "zone": "front door",
+     "share": 0.59
+    },
+    {
+     "zone": "rear door",
+     "share": 0.53
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "side",
+   "side": "right",
+   "severity": "severe",
+   "n": 47,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 0.87
+    },
+    {
+     "zone": "rear door",
+     "share": 0.85
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.74
+    },
+    {
+     "zone": "quarter panel",
+     "share": 0.49
+    },
+    {
+     "zone": "front fender",
+     "share": 0.43
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.38
+    }
+   ]
+  },
+  {
+   "model": "*",
+   "position": "side",
+   "side": "both",
+   "severity": "severe",
+   "n": 19,
+   "scope": "all",
+   "zones": [
+    {
+     "zone": "front door",
+     "share": 1.0
+    },
+    {
+     "zone": "rear door",
+     "share": 1.0
+    },
+    {
+     "zone": "quarter panel",
+     "share": 1.0
+    },
+    {
+     "zone": "tail lamp",
+     "share": 0.95
+    },
+    {
+     "zone": "rear bumper",
+     "share": 0.89
+    },
+    {
+     "zone": "tailgate",
+     "share": 0.84
+    },
+    {
+     "zone": "side mirror",
+     "share": 0.68
+    },
+    {
+     "zone": "front fender",
+     "share": 0.58
+    },
+    {
+     "zone": "hood",
+     "share": 0.37
+    }
+   ]
+  }
+ ]
+}
