@@ -4,7 +4,7 @@ import pytest
 
 from app.adapters.fakes import KeywordDecider
 from app.adapters.ports import Answer, Segment
-from app.modules.draft_v1 import MissingFields
+from app.modules.draft_v1 import DraftClosed, MissingFields
 from app.syncs.flow import Flow
 
 
@@ -17,7 +17,7 @@ def fields(flow, call):
 
 
 def test_call_fills_draft_then_person_confirms_quote():
-    flow = Flow(KeywordDecider())
+    flow = Flow(KeywordDecider(), zones_table={})
     call = flow.start_call("demo")
     run(flow.hear(call, Segment("Atto front bum", final=False)))
     assert fields(flow, call) == {}  # partials do not trigger decisions
@@ -86,3 +86,41 @@ def test_questions_offer_catalog_options():
     keys = {q.key: [o.value for o in q.options] for q in Flow(KeywordDecider()).questions()}
     assert keys["car"] == ["Atto", "Vera", "Ridge"]
     assert keys["intent"] == ["parts quote", "other"]
+
+
+TABLE = {"threshold": 0.3, "cells": [
+    {"model": "Atto", "position": "front", "side": "none", "severity": "moderate", "n": 40, "scope": "model",
+     "zones": [{"zone": "front bumper", "share": 0.95}, {"zone": "grille", "share": 0.45},
+               {"zone": "fog lamp", "share": 0.31}]},
+]}
+
+
+def test_companions_suggested_included_by_default_and_person_can_untick():
+    flow = Flow(KeywordDecider(), zones_table=TABLE)
+    call = flow.start_call("demo")
+    assert flow.view(call)["companions"] == []  # no zone and severity yet
+    flow.set_field(call, "car", "Atto")
+    flow.set_field(call, "zone", "front bumper")
+    flow.set_field(call, "severity", "moderate")
+    comp = flow.view(call)["companions"]
+    assert [(c["zone"], c["share"], c["included"]) for c in comp] == [
+        ("grille", 0.45, True), ("fog lamp", 0.31, True)]
+    assert [l["number"] for l in comp[0]["lines"]] == ["AT-GR01", "AT-GR02"]
+
+    flow.toggle_companion(call, "fog lamp", False)
+    q = flow.quotes.get(flow.confirm(call))
+    numbers = [l["number"] for l in q["lines"]]
+    assert numbers == ["AT-FB01", "AT-FB02L", "AT-FB02R", "AT-FB03", "AT-GR01", "AT-GR02"]
+    with pytest.raises(DraftClosed):
+        flow.toggle_companion(call, "fog lamp", True)
+
+
+def test_companions_off_by_setting(monkeypatch):
+    from app import settings
+
+    monkeypatch.setattr(settings, "COMPANIONS", False)
+    flow = Flow(KeywordDecider(), zones_table=TABLE)
+    call = flow.start_call("demo")
+    for k, v in {"car": "Atto", "zone": "front bumper", "severity": "moderate"}.items():
+        flow.set_field(call, k, v)
+    assert flow.view(call)["companions"] == []

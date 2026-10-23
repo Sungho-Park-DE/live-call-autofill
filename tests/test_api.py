@@ -65,3 +65,14 @@ def test_audio_socket_feeds_speech_into_call():
             m.make_speech = original
         f = c.get(f"/api/calls/{call}").json()["draft"]["fields"]
         assert f["zone"]["value"] == "hood" and f["severity"]["value"] == "severe"
+
+
+def test_companion_toggle_route():
+    from tests.test_flow import TABLE
+
+    c = TestClient(main.create_app(Flow(KeywordDecider(), zones_table=TABLE), stt_name="fake"))
+    call = c.post("/api/calls", json={}).json()["id"]
+    c.post(f"/api/calls/{call}/say", json={"text": "Atto front bumper, it got a dent"})
+    v = c.put(f"/api/calls/{call}/companions/grille", json={"included": False}).json()
+    assert [(x["zone"], x["included"]) for x in v["companions"]] == [("grille", False), ("fog lamp", True)]
+    assert c.put("/api/calls/nope/companions/grille", json={"included": True}).status_code == 404

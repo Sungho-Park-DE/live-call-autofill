@@ -50,6 +50,10 @@ FIELDS: tuple[Field, ...] = (
 
 REQUIRED: tuple[str, ...] = ("car", "zone", "severity")
 
+# Companion zones from past accident cases (built by `python -m analysis`); CTQ_COMPANIONS=0 turns them off.
+ZONES_TABLE = ROOT / "app" / "data" / "zones.json"
+COMPANIONS = os.environ.get("CTQ_COMPANIONS", "1") == "1"
+
 STT = os.environ.get("CTQ_STT", "fake")
 DECIDER = os.environ.get("CTQ_DECIDER", "fake")
 DEMO_SPEED = float(os.environ.get("CTQ_DEMO_SPEED", "1.0"))  # 0 = replay demo calls instantly

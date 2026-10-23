@@ -37,6 +37,10 @@ class FieldBody(BaseModel):
     value: str
 
 
+class CompanionBody(BaseModel):
+    included: bool
+
+
 def load_demo_calls() -> dict[str, dict]:
     return {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(DEMO_CALLS.glob("*.json"))}
 
@@ -111,6 +115,11 @@ def create_app(flow: Flow | None = None, stt_name: str | None = None) -> FastAPI
     @app.delete("/api/calls/{call}/fields/{field}")
     def release_field(call: str, field: str):
         guard(flow_().release_field, call, field)
+        return flow_().view(call)
+
+    @app.put("/api/calls/{call}/companions/{zone}")
+    def toggle_companion(call: str, zone: str, body: CompanionBody):
+        guard(flow_().toggle_companion, call, zone, body.included)
         return flow_().view(call)
 
     @app.post("/api/calls/{call}/confirm")

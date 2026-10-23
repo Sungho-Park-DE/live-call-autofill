@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>call-to-quote</title>
-<link rel="stylesheet" href="/static/style.css?v=1">
+<link rel="stylesheet" href="/static/style.css?v=2">
 </head>
 <body>
 <header>
@@ -31,12 +31,16 @@
     <form id="fields"></form>
     <h3>Parts <span id="missing" class="muted"></span></h3>
     <table id="lines"><thead><tr><th>Part no.</th><th>Name</th><th>Qty</th></tr></thead><tbody></tbody></table>
+    <div id="companions" hidden>
+      <h3>Usually goes with it <span class="muted">— from past accident cases, untick what does not apply</span></h3>
+      <div id="companion-list"></div>
+    </div>
     <div class="row">
       <button id="confirm" class="primary" disabled>Confirm quote</button>
       <span id="result"></span>
     </div>
   </section>
 </main>
-<script type="module" src="/static/app.js?v=1"></script>
+<script type="module" src="/static/app.js?v=2"></script>
 </body>
 </html>

@@ -32,11 +32,24 @@ sync HumanEdits
   when   Request.setField(call, field, value)   then  Draft.set(call, field, value)
   when   Request.releaseField(call, field)      then  Draft.release(call, field)
 
+sync SuggestCompanions                                   (computed on every view, nothing stored)
+  when   Draft.view(call) has zone and severity           and settings.COMPANIONS
+  then   Accident.companions(call, car or "*", Catalog.zones()[zone].position, side, severity, exclude = {zone})
+         each with lines = Catalog.lines(car, companion zone, side, severity)
+
+sync HumanTogglesCompanion
+  when   Request.toggleCompanion(call, zone, included)
+  where  Draft not confirmed
+  then   Accident.accept(call, zone) if included else Accident.decline(call, zone)
+
 sync ConfirmCreatesQuote
   when   Request.confirm(call)
   then   Draft.confirm(call, settings.REQUIRED) -> fields
-         Quote.create(call, fields, Catalog.lines(fields.car, fields.zone, fields.side, fields.severity))
+         Quote.create(call, fields, Catalog.lines(fields.car, fields.zone, fields.side, fields.severity)
+                                    + lines of every included companion (SuggestCompanions), each part number once)
          Call.end(call)
 ```
+
+The Accident table is built offline (`python -m datagen && python -m analysis` → `app/data/zones.json`); the app only reads it.
 
 A question the decider gets: `{key, prompt, options: [{value, hint}]}`; it answers each key with one option value and a confidence in [0, 1], or not at all.

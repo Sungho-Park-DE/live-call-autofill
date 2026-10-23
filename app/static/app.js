@@ -103,6 +103,7 @@ function render(v) {
   const lines = v.quote ? v.quote.lines : v.preview;
   $("lines").tBodies[0].innerHTML = lines.map((l) =>
     `<tr><td>${esc(l.number)}</td><td>${esc(l.name)}</td><td>${l.qty}</td></tr>`).join("");
+  renderCompanions(v.quote ? [] : v.companions, v.draft.fields.car?.value);
   $("missing").textContent = v.missing.length ? `needs: ${v.missing.join(", ")}` : "";
   $("confirm").disabled = v.draft.confirmed || v.missing.length > 0;
   if (v.quote) {
@@ -110,6 +111,25 @@ function render(v) {
     setCallControls(false);
     clearInterval(poller);
     stopMic();
+  }
+}
+
+function renderCompanions(list, car) {
+  $("companions").hidden = !list.length;
+  const key = JSON.stringify(list);
+  if ($("companion-list").dataset.key === key) return;
+  $("companion-list").dataset.key = key;
+  $("companion-list").innerHTML = list.map((c) => `
+    <label class="companion${c.included ? "" : " off"}">
+      <input type="checkbox" data-zone="${esc(c.zone)}" ${c.included ? "checked" : ""}>
+      <span class="zone">${esc(c.zone)}</span>
+      <span class="tag share">${Math.round(c.share * 100)}%</span>
+      <span class="muted">of ${c.n} past cases (${c.scope === "model" && car ? esc(car) : "all models"})</span>
+      <span class="parts">${c.lines.map((l) => esc(`${l.number} ${l.name}`)).join(" · ") || "pick a car to see parts"}</span>
+    </label>`).join("");
+  for (const box of $("companion-list").querySelectorAll("input")) {
+    box.onchange = () => api("PUT", `/api/calls/${call}/companions/${encodeURIComponent(box.dataset.zone)}`,
+      { included: box.checked }).then(render);
   }
 }
 
