@@ -1,0 +1,1012 @@
+{
+ "decider": "sonnet",
+ "model": "claude-sonnet-5-5",
+ "seconds": [
+  2.9089318000042113,
+  1.539779400001862,
+  2.9627323000022443,
+  1.4146435000002384,
+  1.3673488999920664,
+  1.49000600000727,
+  1.4295177000021795,
+  1.551648299995577,
+  1.417494599998463,
+  1.3552579999959562,
+  3.3585825999907684,
+  1.4681687999982387,
+  1.781817700000829,
+  1.5961040999973193,
+  1.6580512000073213,
+  1.3757737999985693,
+  1.5169179999938933,
+  1.3957328000105917,
+  1.4128059999929974,
+  1.3975005999964196,
+  1.4048391000105767,
+  2.223975099987001,
+  1.527618899999652,
+  1.6256202000076883,
+  1.6481461000075797,
+  3.098824799992144,
+  1.7024238000012701,
+  1.9917942000029143,
+  1.4279973000084283,
+  1.4639943000074709,
+  1.3573553999885917,
+  1.5124985000002198,
+  1.9934500000090338,
+  1.6315291999926558,
+  1.3525516000081552,
+  1.5610728000028757,
+  1.501811699999962,
+  3.126482899999246,
+  1.358498999994481,
+  1.358629900001688,
+  1.4947597999998834,
+  1.6765183999959845,
+  1.5439535999903455,
+  1.3714604999986477,
+  1.418364199998905,
+  1.4332838999980595,
+  2.3726426000066567,
+  1.258989100009785,
+  1.5342499999969732,
+  1.53283540000848,
+  1.5197033000004012,
+  1.4471502999949735,
+  1.6846345999947516,
+  1.3902186999912374,
+  1.4241657000093255,
+  1.788929400005145,
+  1.953983600003994,
+  1.784101199998986
+ ],
+ "order_flips": [],
+ "rows": [
+  {
+   "case": "demo-1-simple",
+   "after": 3,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-1-simple",
+   "after": 3,
+   "field": "car",
+   "expected": "Atto",
+   "decider": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-1-simple",
+   "after": 3,
+   "field": "zone",
+   "expected": "front bumper",
+   "decider": {
+    "value": "front bumper",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-1-simple",
+   "after": 3,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "demo-1-simple",
+   "after": 3,
+   "field": "severity",
+   "expected": "minor",
+   "decider": {
+    "value": "minor",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-2-correction",
+   "after": 2,
+   "field": "side",
+   "expected": "left",
+   "decider": {
+    "value": "left",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-2-correction",
+   "after": 3,
+   "field": "side",
+   "expected": "right",
+   "decider": {
+    "value": "right",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-2-correction",
+   "after": 4,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-2-correction",
+   "after": 4,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-2-correction",
+   "after": 4,
+   "field": "zone",
+   "expected": "front fender",
+   "decider": {
+    "value": "front fender",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-2-correction",
+   "after": 4,
+   "field": "side",
+   "expected": "right",
+   "decider": {
+    "value": "right",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-2-correction",
+   "after": 4,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-3-unsure",
+   "after": 3,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-3-unsure",
+   "after": 3,
+   "field": "car",
+   "expected": "Ridge",
+   "decider": {
+    "value": "Ridge",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-3-unsure",
+   "after": 3,
+   "field": "zone",
+   "expected": "headlamp",
+   "decider": {
+    "value": "headlamp",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-3-unsure",
+   "after": 3,
+   "field": "side",
+   "expected": "left",
+   "decider": {
+    "value": "left",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "demo-3-unsure",
+   "after": 3,
+   "field": "severity",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "delivery",
+   "after": 2,
+   "field": "intent",
+   "expected": "other",
+   "decider": {
+    "value": "other",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "delivery",
+   "after": 2,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "delivery",
+   "after": 2,
+   "field": "zone",
+   "expected": "tail lamp",
+   "decider": {
+    "value": "tail lamp",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "bonnet",
+   "after": 2,
+   "field": "car",
+   "expected": "Ridge",
+   "decider": {
+    "value": "Ridge",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "bonnet",
+   "after": 2,
+   "field": "zone",
+   "expected": "hood",
+   "decider": {
+    "value": "hood",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "bonnet",
+   "after": 2,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "bonnet",
+   "after": 2,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "mirror-passenger",
+   "after": 2,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": null
+  },
+  {
+   "case": "mirror-passenger",
+   "after": 2,
+   "field": "car",
+   "expected": "Atto",
+   "decider": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "mirror-passenger",
+   "after": 2,
+   "field": "zone",
+   "expected": "side mirror",
+   "decider": {
+    "value": "side mirror",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "mirror-passenger",
+   "after": 2,
+   "field": "side",
+   "expected": "right",
+   "decider": {
+    "value": "right",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "mirror-passenger",
+   "after": 2,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "stt-slip-car",
+   "after": 2,
+   "field": "car",
+   "expected": "Atto",
+   "decider": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "stt-slip-car",
+   "after": 2,
+   "field": "zone",
+   "expected": "rear bumper",
+   "decider": {
+    "value": "rear bumper",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "stt-slip-car",
+   "after": 2,
+   "field": "severity",
+   "expected": "minor",
+   "decider": {
+    "value": "minor",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "both-doors",
+   "after": 2,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "both-doors",
+   "after": 2,
+   "field": "zone",
+   "expected": "front door",
+   "decider": {
+    "value": "front door",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "both-doors",
+   "after": 2,
+   "field": "side",
+   "expected": "both",
+   "decider": {
+    "value": "both",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "both-doors",
+   "after": 2,
+   "field": "severity",
+   "expected": "minor",
+   "decider": {
+    "value": "minor",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "tailgate-smashed",
+   "after": 2,
+   "field": "car",
+   "expected": "Ridge",
+   "decider": {
+    "value": "Ridge",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "tailgate-smashed",
+   "after": 2,
+   "field": "zone",
+   "expected": "tailgate",
+   "decider": {
+    "value": "tailgate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "tailgate-smashed",
+   "after": 2,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "tailgate-smashed",
+   "after": 2,
+   "field": "severity",
+   "expected": "severe",
+   "decider": {
+    "value": "severe",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "car-correction",
+   "after": 1,
+   "field": "car",
+   "expected": "Atto",
+   "decider": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "car-correction",
+   "after": 2,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "car-correction",
+   "after": 2,
+   "field": "zone",
+   "expected": "grille",
+   "decider": {
+    "value": "grille",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "zone-correction",
+   "after": 2,
+   "field": "car",
+   "expected": "Atto",
+   "decider": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "zone-correction",
+   "after": 2,
+   "field": "zone",
+   "expected": "quarter panel",
+   "decider": {
+    "value": "quarter panel",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "zone-correction",
+   "after": 2,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "side-unknown",
+   "after": 2,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "side-unknown",
+   "after": 2,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "side-unknown",
+   "after": 2,
+   "field": "zone",
+   "expected": "headlamp",
+   "decider": {
+    "value": "headlamp",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "side-unknown",
+   "after": 2,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "side-unknown",
+   "after": 2,
+   "field": "severity",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "no-car",
+   "after": 1,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "no-car",
+   "after": 1,
+   "field": "car",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "no-car",
+   "after": 1,
+   "field": "zone",
+   "expected": "fog lamp",
+   "decider": {
+    "value": "fog lamp",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "no-car",
+   "after": 1,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "no-car",
+   "after": 1,
+   "field": "severity",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "negation",
+   "after": 2,
+   "field": "car",
+   "expected": "Ridge",
+   "decider": {
+    "value": "Ridge",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "negation",
+   "after": 2,
+   "field": "zone",
+   "expected": "fog lamp",
+   "decider": {
+    "value": "fog lamp",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "negation",
+   "after": 2,
+   "field": "side",
+   "expected": "right",
+   "decider": {
+    "value": "right",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "negation",
+   "after": 2,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "small-talk",
+   "after": 2,
+   "field": "car",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "small-talk",
+   "after": 2,
+   "field": "zone",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "small-talk",
+   "after": 2,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "small-talk",
+   "after": 2,
+   "field": "severity",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "return",
+   "after": 2,
+   "field": "intent",
+   "expected": "other",
+   "decider": {
+    "value": "other",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "return",
+   "after": 2,
+   "field": "car",
+   "expected": "Atto",
+   "decider": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "return",
+   "after": 2,
+   "field": "zone",
+   "expected": "hood",
+   "decider": {
+    "value": "hood",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "radiator",
+   "after": 2,
+   "field": "car",
+   "expected": "Ridge",
+   "decider": {
+    "value": "Ridge",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "radiator",
+   "after": 2,
+   "field": "zone",
+   "expected": "radiator support",
+   "decider": {
+    "value": "radiator support",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "radiator",
+   "after": 2,
+   "field": "severity",
+   "expected": "severe",
+   "decider": {
+    "value": "severe",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "driver-rear-door",
+   "after": 1,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "driver-rear-door",
+   "after": 1,
+   "field": "zone",
+   "expected": "rear door",
+   "decider": {
+    "value": "rear door",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "driver-rear-door",
+   "after": 1,
+   "field": "side",
+   "expected": "left",
+   "decider": {
+    "value": "left",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "driver-rear-door",
+   "after": 1,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 3,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 3,
+   "field": "car",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 3,
+   "field": "zone",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "zone",
+   "expected": "quarter panel",
+   "decider": {
+    "value": "quarter panel",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "severity",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 1,
+   "field": "car",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 1,
+   "field": "zone",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "intent",
+   "expected": "other",
+   "decider": {
+    "value": "other",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "car",
+   "expected": "Vera",
+   "decider": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "zone",
+   "expected": "headlamp",
+   "decider": {
+    "value": "headlamp",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "side",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "severity",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 2,
+   "field": "side",
+   "expected": "left",
+   "decider": {
+    "value": "left",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "car",
+   "expected": "Ridge",
+   "decider": {
+    "value": "Ridge",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "zone",
+   "expected": "side mirror",
+   "decider": {
+    "value": "side mirror",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "side",
+   "expected": "right",
+   "decider": {
+    "value": "right",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 6,
+   "field": "intent",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 6,
+   "field": "car",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 6,
+   "field": "zone",
+   "expected": null,
+   "decider": null
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "intent",
+   "expected": "parts quote",
+   "decider": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "car",
+   "expected": "Atto",
+   "decider": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "zone",
+   "expected": "rear bumper",
+   "decider": {
+    "value": "rear bumper",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "severity",
+   "expected": "moderate",
+   "decider": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  }
+ ]
+}

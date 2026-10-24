@@ -1,0 +1,355 @@
+{
+ "decider": "jev",
+ "model": "jev-1.14.0",
+ "seconds": [
+  1.7906205000035698,
+  0.4221737000043504,
+  0.4233257000014419,
+  0.42235989999608137,
+  0.4281896000029519,
+  0.43228959999396466,
+  0.42578710000088904,
+  0.4187088000035146,
+  0.4247577000060119,
+  0.42433800001163036,
+  0.4211773999995785,
+  0.42473250000330154,
+  0.42572199999995064,
+  0.42409119999501854,
+  0.42852500001026783,
+  0.42329640001116786,
+  0.4309736999857705,
+  0.419861000002129,
+  0.4289048000064213,
+  0.4245541999989655
+ ],
+ "order_flips": [],
+ "rows": [
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 3,
+   "field": "intent",
+   "expected": "parts quote",
+   "probability": {
+    "value": "parts quote",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 3,
+   "field": "car",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 3,
+   "field": "zone",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "intent",
+   "expected": "parts quote",
+   "probability": {
+    "value": "parts quote",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "car",
+   "expected": "Vera",
+   "probability": {
+    "value": "Vera",
+    "confidence": 0.91
+   },
+   "jev": {
+    "value": "Vera",
+    "confidence": 0.88
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "zone",
+   "expected": "quarter panel",
+   "probability": {
+    "value": "quarter panel",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "quarter panel",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "side",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo1-fender-to-quarter",
+   "after": 5,
+   "field": "severity",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 1,
+   "field": "car",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 1,
+   "field": "zone",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "intent",
+   "expected": "other",
+   "probability": {
+    "value": "other",
+    "confidence": 0.98
+   },
+   "jev": {
+    "value": "other",
+    "confidence": 0.97
+   }
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "car",
+   "expected": "Vera",
+   "probability": {
+    "value": "Vera",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "Vera",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "zone",
+   "expected": "headlamp",
+   "probability": {
+    "value": "headlamp",
+    "confidence": 0.54
+   },
+   "jev": {
+    "value": "headlamp",
+    "confidence": 0.51
+   }
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "side",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo2-delivery",
+   "after": 3,
+   "field": "severity",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 2,
+   "field": "side",
+   "expected": "left",
+   "probability": {
+    "value": "left",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "left",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "intent",
+   "expected": "parts quote",
+   "probability": {
+    "value": "parts quote",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "car",
+   "expected": "Ridge",
+   "probability": {
+    "value": "Ridge",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "Ridge",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "zone",
+   "expected": "side mirror",
+   "probability": {
+    "value": "side mirror",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "side mirror",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "side",
+   "expected": "right",
+   "probability": {
+    "value": "right",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "right",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo3-mirror-side-correction",
+   "after": 4,
+   "field": "severity",
+   "expected": "moderate",
+   "probability": {
+    "value": "moderate",
+    "confidence": 0.88
+   },
+   "jev": {
+    "value": "moderate",
+    "confidence": 0.84
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 6,
+   "field": "intent",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 6,
+   "field": "car",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 6,
+   "field": "zone",
+   "expected": null,
+   "probability": null,
+   "jev": null
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "intent",
+   "expected": "parts quote",
+   "probability": {
+    "value": "parts quote",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "parts quote",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "car",
+   "expected": "Atto",
+   "probability": {
+    "value": "Atto",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "Atto",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "zone",
+   "expected": "rear bumper",
+   "probability": {
+    "value": "rear bumper",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "rear bumper",
+    "confidence": 1.0
+   }
+  },
+  {
+   "case": "rec-demo4-rear-bumper",
+   "after": 8,
+   "field": "severity",
+   "expected": "moderate",
+   "probability": {
+    "value": "moderate",
+    "confidence": 1.0
+   },
+   "jev": {
+    "value": "moderate",
+    "confidence": 1.0
+   }
+  }
+ ]
+}
