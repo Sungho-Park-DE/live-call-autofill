@@ -175,7 +175,8 @@ def save(r: Run) -> Path:
                 for m in r.got}}
             for (cid, n, k), exp in r.expected.items()]
     path.write_text(json.dumps({"decider": r.decider, "model": r.model, "seconds": r.seconds,
-                                "order_flips": r.order_flips, "rows": rows}, indent=1), encoding="utf-8")
+                                "order_cases": r.order_cases, "order_flips": r.order_flips, "rows": rows},
+                               indent=1), encoding="utf-8")
     return path
 
 

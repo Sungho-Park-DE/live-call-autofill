@@ -64,10 +64,10 @@ matter, e.g. a nightly second opinion that flags calls where the two disagree.
 
 | Question | Result | Decision |
 |---|---|---|
-| Threshold | No wrong suggestions at any threshold 0.3–0.95; above 0.6 only right answers get dropped (0.95: 64 right instead of 74) | keep **0.6** (one borderline intent sits at 0.46–0.58) |
+| Threshold | No wrong suggestions at any threshold 0.3–0.95; above 0.6 only right answers get dropped (0.95: 65–66 right instead of 74–75) | keep **0.6** (one borderline intent sits at 0.46–0.58) |
 | Confidence measure | Probability of the chosen option is consistently higher on right answers than Jev's own spread-based confidence (0.56 vs 0.34 on the same answer) and misses fewer | keep **probability** |
 | "not said yet" option | All 13 + 11 checks that should stay empty stayed empty | **keep** |
-| Option order bias | Options reversed on all 18 invented calls: 0 answers changed | no measurable first-option bias |
+| Option order bias | Options reversed on all 22 calls (18 invented, 4 recorded; `eval/runs/decider-jev-20261025-033619-order.json`): 0 answers changed | no measurable first-option bias |
 
 ## 3. Speech to text on the recorded test calls (ElevenLabs Scribe v2 Realtime)
 
