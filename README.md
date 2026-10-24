@@ -118,9 +118,9 @@ With real engines: set `CTQ_STT=elevenlabs`, `CTQ_DECIDER=jev` and the keys in `
 
 ## Roadmap
 
-- [ ] ElevenLabs Scribe v2 Realtime adapter (8 kHz phone audio)
+- [ ] ElevenLabs Scribe v2 Realtime adapter (measured on English 16 kHz test calls only)
 - [ ] Jev adapter, and an evaluation on recorded test calls: accuracy per field, latency, and the threshold that keeps wrong suggestions rare
-- [ ] Words that phone speech-to-text gets wrong (model names, part words, numbers) — keyword boosting with the catalog's own words
+- [ ] Words that phone speech-to-text gets wrong (model names, part words, numbers; English only so far) — keyword boosting with the catalog's own words
 - [ ] Phone audio into the PC (handset tap or line adapter) instead of a microphone
 - [ ] Several zones per call (one draft per zone)
 
