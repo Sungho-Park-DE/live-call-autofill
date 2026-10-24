@@ -4,6 +4,7 @@ line, on the transcript so far) and scores every field at every threshold.
     python -m eval decider                 # Jev (needs JEV_API_KEY)
     python -m eval decider --decider fake  # keyword baseline, offline
     python -m eval decider --order         # also re-ask Jev with options reversed
+    python -m eval decider --decider sonnet  # general LLM for comparison (needs ANTHROPIC_API_KEY)
 
 Scoring per field and checkpoint, at threshold t:
   right  = suggested (confidence >= t) and equals the expected value
@@ -88,6 +89,7 @@ async def run(decider, cases: list[dict], *, order: bool = False) -> Run:
                     per_mode[m] = decider.answers(resp, qs)
             else:
                 per_mode = {"decider": await decider.decide(transcript, qs)}
+                r.model = getattr(decider, "last", {}).get("model") or r.model
             r.seconds.append(time.perf_counter() - t0)
             if n not in c["checks"]:
                 continue
@@ -180,6 +182,10 @@ def save(r: Run) -> Path:
 def make(name: str):
     if name == "fake":
         return KeywordDecider()
+    if name == "sonnet":
+        from eval.sonnet import SonnetDecider
+
+        return SonnetDecider.from_env()
     from app.adapters.jev import JevDecider
 
     return JevDecider.from_env()

@@ -11,7 +11,7 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="python -m eval")
     sub = p.add_subparsers(dest="cmd", required=True)
     d = sub.add_parser("decider", help="score a decider on eval/cases.json")
-    d.add_argument("--decider", default="jev", choices=["jev", "fake"])
+    d.add_argument("--decider", default="jev", choices=["jev", "sonnet", "fake"])
     d.add_argument("--order", action="store_true", help="also ask with options reversed (Jev only)")
     d.add_argument("--only", help="comma separated case ids")
     sub.add_parser("tts", help="synthesise demo calls into recordings/*.wav")
