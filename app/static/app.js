@@ -104,6 +104,8 @@ function render(v) {
   $("lines").tBodies[0].innerHTML = lines.map((l) =>
     `<tr><td>${esc(l.number)}</td><td>${esc(l.name)}</td><td>${l.qty}</td></tr>`).join("");
   renderCompanions(v.quote ? [] : v.companions, v.draft.fields.car?.value);
+  renderAsk(v.ask);
+  renderProblems(v.problems);
   $("missing").textContent = v.missing.length ? `needs: ${v.missing.join(", ")}` : "";
   $("confirm").disabled = v.draft.confirmed || v.missing.length > 0;
   if (v.quote) {
@@ -112,6 +114,27 @@ function render(v) {
     clearInterval(poller);
     stopMic();
   }
+}
+
+const PROBLEM_TEXT = {
+  decider: (m) => `The decision model did not answer (${m}). The draft keeps its values; keep going or fill fields by hand.`,
+  speech: (m) => `Speech-to-text stopped (${m}). The call is still open: type a line or press Mic to start again.`,
+};
+
+function renderProblems(problems) {
+  const entries = Object.entries(problems || {});
+  $("problems").hidden = !entries.length;
+  $("problems").innerHTML = entries.map(([k, m]) => `<p>${esc((PROBLEM_TEXT[k] || ((x) => x))(m))}</p>`).join("");
+}
+
+function renderAsk(list) {
+  $("ask").hidden = !list.length;
+  $("ask-list").innerHTML = list.map((q) => {
+    const status = q.maybe
+      ? `<span class="maybe">maybe ${esc(q.maybe)} (${Math.round(q.confidence * 100)}%)</span>`
+      : `<span class="status">not heard yet</span>`;
+    return `<li><span class="what">${esc(q.label)}</span>: ${status} → ${esc(q.question)}</li>`;
+  }).join("");
 }
 
 function renderCompanions(list, car) {
@@ -154,6 +177,7 @@ async function toggleMic() {
   const node = new AudioWorkletNode(ctx, "pcm-chunker");
   const ws = new WebSocket(`${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/ws/calls/${call}/audio`);
   ws.binaryType = "arraybuffer";
+  ws.onclose = () => { if (mic && mic.ws === ws) stopMic(); };
   node.port.onmessage = (e) => ws.readyState === WebSocket.OPEN && ws.send(e.data);
   ctx.createMediaStreamSource(stream).connect(node);
   mic = { stream, ctx, ws };

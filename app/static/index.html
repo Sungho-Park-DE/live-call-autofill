@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>call-to-quote</title>
-<link rel="stylesheet" href="/static/style.css?v=2">
+<title>live-call-autofill</title>
+<link rel="stylesheet" href="/static/style.css?v=3">
 </head>
 <body>
 <header>
-  <h1>call-to-quote</h1>
+  <h1>live-call-autofill</h1>
   <span id="engines" class="muted"></span>
 </header>
 <main>
@@ -24,11 +24,16 @@
       <input id="say" placeholder="…or type what the caller says, Enter to send" disabled>
     </div>
     <div id="transcript" class="transcript"><p class="muted">No call yet.</p></div>
+    <div id="problems" hidden></div>
   </section>
   <section id="draft-panel" class="panel">
     <h2>Quote draft</h2>
     <p class="legend"><span class="tag suggested">suggested</span> filled from the call · <span class="tag human">you</span> set by the person, never overwritten</p>
     <form id="fields"></form>
+    <div id="ask" hidden>
+      <h3>Ask the caller <span class="muted">— still empty</span></h3>
+      <ul id="ask-list"></ul>
+    </div>
     <h3>Parts <span id="missing" class="muted"></span></h3>
     <table id="lines"><thead><tr><th>Part no.</th><th>Name</th><th>Qty</th></tr></thead><tbody></tbody></table>
     <div id="companions" hidden>
@@ -41,6 +46,6 @@
     </div>
   </section>
 </main>
-<script type="module" src="/static/app.js?v=2"></script>
+<script type="module" src="/static/app.js?v=3"></script>
 </body>
 </html>
