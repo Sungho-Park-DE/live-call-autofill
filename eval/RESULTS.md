@@ -1,8 +1,8 @@
 # Results — real adapters, measured (2026-10-24)
 
 What the live services did on our test calls, and what we decided from it. Every number below
-comes from a command in [README.md](README.md); raw outputs are in `eval/results/` (git-ignored,
-re-create them with the commands at the end).
+comes from a command in [README.md](README.md); the cited raw outputs are in [`runs/`](runs/README.md),
+new runs go to `eval/results/` (git-ignored; re-create them with the commands at the end).
 
 ## Goal and what the data says
 
@@ -12,12 +12,18 @@ still talking. Not measured: the agent's time saved (that needs a study with rea
 
 - **Filled before hang-up:** of 78 field values the caller gave, Jev filled 74–75 (95 %), **0 wrong**;
   all 24 fields that should stay empty stayed empty.
+- **Read with the limits:** 22 labelled calls, 102 checks, mostly written by us; 4 staged recordings
+  by one speaker pair, English only, 16 kHz. "0 wrong" bounds the true error rate only loosely
+  (about 3 % at 95 % confidence, rule of three). Details in section 5.
 - **Why during the call and not after it:** a general LLM after hang-up also saves typing, and only
   ~2 s later. What it cannot do is show *during* the call what is still missing, so the agent asks
   now instead of calling back. Jev's held fields are exactly that list.
-- **Why Jev for that:** it returns a probability, so the app fills only what is certain and leaves
-  the rest for the agent; Sonnet answers every field as certain. And at 0.43 s (p90 0.44 s) it can
-  re-decide every few seconds on partial transcripts; Sonnet takes 1.5–2.2 s per call.
+- **Why Jev for that:**
+  *Measured:* in this test Sonnet was as accurate (77 right, 0 wrong; Jev 74–75, 0 wrong) and Jev was
+  about 3.5× faster (p50 0.43 s vs 1.5 s; Sonnet p90 2.2 s), which is what lets the app re-decide
+  every few seconds on partial transcripts. *Not measured:* whether Sonnet returning no probability
+  (so every answer counts as certain) leads to wrong values being filled in practice (neither model
+  produced a wrong value in 6 runs), and cost.
 - **What still limits it:** the speech service cuts utterances late on calls without pauses
   (section 3), so the draft trails the conversation by up to ~30 s until the app also decides on
   partial transcripts.
@@ -48,8 +54,9 @@ Same questions, same options ("not said yet" included), same order, threshold 0.
   the way a threshold on Jev does. We measured speed and accuracy, not that risk.
 
 **Decision:** Jev for the live draft (it runs on every final transcript; 0.4 s vs 1.5–2.2 s is
-visible on screen). A general LLM fits offline work where latency does not matter, e.g. a nightly
-second opinion that flags calls where the two disagree.
+visible on screen). The choice rests on speed: accuracy was equal in this test, and the risk of a
+missing probability was not measured. A general LLM fits offline work where latency does not
+matter, e.g. a nightly second opinion that flags calls where the two disagree.
 
 ## 2. Jev settings
 
@@ -131,5 +138,7 @@ python -m eval decider --order                             # Jev (JEV_API_KEY)
 python -m eval decider --decider sonnet                    # Sonnet (ANTHROPIC_API_KEY)
 python -m eval stt recordings/demo3.wav --decide           # STT + Jev on a recording (ELEVENLABS_API_KEY)
 ```
+
+The raw outputs behind the tables are kept in [`runs/`](runs/README.md); new runs go to `eval/results/`.
 
 Recordings: convert `audio_samples/*.mp3` to 16 kHz mono 16-bit WAV in `recordings/demo1.wav` … `demo4.wav`.

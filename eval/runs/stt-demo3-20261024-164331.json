@@ -1,0 +1,41 @@
+{
+ "recording": "demo3",
+ "config": {
+  "sample_rate": 16000,
+  "audio_format": "pcm_16000",
+  "language_code": "en",
+  "secondary_languages": [],
+  "timestamps_granularity": "word",
+  "vad_commit_strategy": true,
+  "vad_silence_threshold_secs": 0.4,
+  "vad_threshold": 0.4,
+  "min_speech_duration_ms": 100,
+  "min_silence_duration_ms": 100,
+  "max_tokens_to_recompute": 5,
+  "model_id": "scribe_v2_realtime",
+  "disable_logging": false,
+  "include_timestamps": false,
+  "include_language_detection": false,
+  "filter_background_audio": false,
+  "keyterms": [
+   "Atto",
+   "Vera",
+   "Ridge"
+  ],
+  "no_verbatim": false,
+  "entity_detection": null,
+  "keepalive_interval_ms": null
+ },
+ "finals": [
+  "SH Auto Parts. Good morning. Hi. Morning. Yeah, I've got a problem with my pickup, and I was hoping you could help. Oh, absolutely. Just so I can help you a little quicker, could I grab the last six digits of your VIN first? Yeah, hang on.",
+  "It's 592416. Perfect. Thanks. So, what's going on with the vehicle? Yeah, it's a Ridge pickup. Someone knocked the side mirror off yesterday. Oh, I see. Which side was it? The driver's side.",
+  "Hmm.",
+  "Wait, no, sorry. I'm looking at it right now. It's actually the passenger side. Ah, okay, passenger side. Is the mirror completely broken? Pretty much. The whole thing's hanging by the wires. Gotcha. Are you looking for a replacement? Yeah, exactly. Could you give me a rough price for the whole mirror assembly? Sure. Do you have any pictures? Yeah, I can send a couple over. Perfect. We'll check the part and get back to you. Awesome, thanks. No problem. Have a good one."
+ ],
+ "final_at": [
+  17.5,
+  33.3,
+  34.5,
+  63.7
+ ]
+}

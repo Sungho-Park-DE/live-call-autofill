@@ -1,0 +1,49 @@
+{
+ "recording": "demo4",
+ "config": {
+  "sample_rate": 16000,
+  "audio_format": "pcm_16000",
+  "language_code": "en",
+  "secondary_languages": [],
+  "timestamps_granularity": "word",
+  "vad_commit_strategy": true,
+  "vad_silence_threshold_secs": 0.4,
+  "vad_threshold": 0.4,
+  "min_speech_duration_ms": 100,
+  "min_silence_duration_ms": 100,
+  "max_tokens_to_recompute": 5,
+  "model_id": "scribe_v2_realtime",
+  "disable_logging": false,
+  "include_timestamps": false,
+  "include_language_detection": false,
+  "filter_background_audio": false,
+  "keyterms": [
+   "Atto",
+   "Vera",
+   "Ridge"
+  ],
+  "no_verbatim": false,
+  "entity_detection": null,
+  "keepalive_interval_ms": null
+ },
+ "finals": [
+  "SH Auto Parts. Good morning.",
+  "Hi. Yeah, good morning. Um, I've got a problem with my car, and I was wondering if you could help me out. Oh, absolutely.",
+  "Just so I can help you a little quicker, could I grab the last six digits of your VIN first? Yeah, sure. Hang on a sec.",
+  "Okay.",
+  "482731.",
+  "Perfect. Thanks. So, what's going on with the car?",
+  "Yeah. So, I've got an Atto, the little SUV. Someone backed into it in a parking lot the other day. Oh, I see. What got damaged? Mostly the rear bumper. There's a crack in the middle, a dent on the left side, and some pretty deep scratches. Gotcha. Are the lights okay? Yeah, lights are fine. I just want to get a rough price for the bumper. Just the part, no installation. Sure. Do you have any pictures? Yeah, I can send some over.",
+  "Perfect. We'll check the part and get back to you. Awesome. Thanks a lot. No problem. Have a good one."
+ ],
+ "final_at": [
+  4.4,
+  12.7,
+  20.6,
+  22.1,
+  26.9,
+  30.4,
+  60.1,
+  66.5
+ ]
+}

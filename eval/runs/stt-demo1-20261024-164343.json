@@ -1,0 +1,43 @@
+{
+ "recording": "demo1",
+ "config": {
+  "sample_rate": 16000,
+  "audio_format": "pcm_16000",
+  "language_code": "en",
+  "secondary_languages": [],
+  "timestamps_granularity": "word",
+  "vad_commit_strategy": true,
+  "vad_silence_threshold_secs": 0.4,
+  "vad_threshold": 0.4,
+  "min_speech_duration_ms": 100,
+  "min_silence_duration_ms": 100,
+  "max_tokens_to_recompute": 5,
+  "model_id": "scribe_v2_realtime",
+  "disable_logging": false,
+  "include_timestamps": false,
+  "include_language_detection": false,
+  "filter_background_audio": false,
+  "keyterms": [
+   "Atto",
+   "Vera",
+   "Ridge"
+  ],
+  "no_verbatim": false,
+  "entity_detection": null,
+  "keepalive_interval_ms": null
+ },
+ "finals": [
+  "SH Auto Parts. Good morning.",
+  "Hi. Good morning. Yeah, I need a price for a part on my car. Oh, absolutely. Just so I can help you a little quicker, could I grab the last six digits of your VIN first? Uh, sure. Hang on.",
+  "It's 629483.",
+  "Perfect. Thanks. So, what seems to be the problem? Yeah, I've got a Vera, and I need a quote for the front fender. All right, the front fender. Is it badly damaged? Wait, actually, sorry, I meant the back one. You know, the panel just above the rear wheel. Oh, gotcha. So, the rear quarter panel? Yeah, that's the one. Sorry about that. No worries. And how bad is the damage? Um, honestly, I'm not really sure. My husband was driving, and I haven't had a proper look at it yet. That's all right. Do you know if it's dented or scratched? Uh, I really couldn't say.",
+  "I just know that something happened to that panel. No problem. Would you be able to send us a photo later? Yeah, sure. I'll ask my husband to take one. Perfect. Once we see it, we can help you with the quote. Sounds good. Thanks so much. You're welcome. Have a good day."
+ ],
+ "final_at": [
+  4.8,
+  18.4,
+  24.2,
+  62.3,
+  78.1
+ ]
+}
