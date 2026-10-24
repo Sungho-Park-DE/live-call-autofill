@@ -196,7 +196,7 @@ def test_eval_harness_runs_offline_with_keyword_baseline():
 
 
 def test_sonnet_comparison_decider_request_and_answers():
-    from eval.sonnet import TOOL, SonnetDecider
+    from eval.sonnet import SonnetDecider
 
     seen = {}
 
@@ -204,12 +204,13 @@ def test_sonnet_comparison_decider_request_and_answers():
         seen["key"] = request.headers["x-api-key"]
         seen["body"] = json.loads(request.content)
         return httpx.Response(200, json={"model": "claude-x", "content": [
-            {"type": "tool_use", "name": TOOL, "input": {"side": "right", "car": NOT_SAID}}]})
+            {"type": "text", "text": json.dumps({"side": "right", "car": NOT_SAID})}]})
 
     d = SonnetDecider("k", client=httpx.AsyncClient(transport=httpx.MockTransport(handler)))
     got = asyncio.run(d.decide("left... no, the passenger side", [SIDE, CAR]))
-    assert seen["key"] == "k" and seen["body"]["tool_choice"] == {"type": "tool", "name": TOOL}
-    side = seen["body"]["tools"][0]["input_schema"]["properties"]["side"]
+    schema = seen["body"]["output_config"]["format"]["schema"]
+    assert seen["key"] == "k" and schema["additionalProperties"] is False
+    side = schema["properties"]["side"]
     assert side["enum"] == ["left", "right", NOT_SAID] and "driver side" in side["description"]
     assert set(got) == {"side"} and got["side"].value == "right" and d.last["model"] == "claude-x"
 

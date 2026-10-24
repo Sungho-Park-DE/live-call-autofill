@@ -72,7 +72,7 @@ def reversed_options(qs: Sequence[Question]) -> list[Question]:
 async def run(decider, cases: list[dict], *, order: bool = False) -> Run:
     qs = questions()
     r = Run(decider=getattr(decider, "name", "?"))
-    raw = hasattr(decider, "ask") and hasattr(decider, "answers")
+    raw = hasattr(decider, "ask") and hasattr(decider, "answers") and hasattr(decider, "confidence")
     modes = ("probability", "jev") if raw else ("decider",)
     for m in modes:
         r.got[m] = {}

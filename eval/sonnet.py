@@ -2,7 +2,8 @@
 as Jev, so speed and accuracy can be put side by side. Not wired into the app.
 
 Same content as the Jev request: per question the prompt, the options with their hints and a
-"not said yet" option, answered in one forced tool call. Claude returns no probabilities, so
+"not said yet" option, answered in one call with a JSON schema output (output_config.format;
+Sonnet 5.5 rejects a forced tool_choice). Claude returns no probabilities, so
 every answer gets confidence 1.0 and the threshold table is flat for this decider.
 
 Environment: ANTHROPIC_API_KEY; optional CLAUDE_MODEL (default claude-sonnet-5-5).
@@ -10,6 +11,7 @@ Environment: ANTHROPIC_API_KEY; optional CLAUDE_MODEL (default claude-sonnet-5-5
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 import time
 from typing import Any, Sequence
@@ -21,7 +23,6 @@ from app.adapters.ports import Answer, Question
 
 URL = "https://api.anthropic.com/v1/messages"
 MODEL = "claude-sonnet-5-5"
-TOOL = "record_answers"
 SYSTEM = ("You fill in a parts-quote form from a phone call transcript between a parts shop and a caller. "
           "Judge only from what the caller says. If the caller corrects themselves, the later statement "
           f"counts. If something has not been said or cannot be told, answer {NOT_SAID!r}.")
@@ -61,9 +62,8 @@ class SonnetDecider:
             "model": self.model,
             "max_tokens": 400,
             "system": SYSTEM,
-            "tools": [{"name": TOOL, "description": "Record one answer per form field.",
-                       "input_schema": {"type": "object", "properties": props, "required": list(props)}}],
-            "tool_choice": {"type": "tool", "name": TOOL},
+            "output_config": {"format": {"type": "json_schema", "schema": {
+                "type": "object", "properties": props, "required": list(props), "additionalProperties": False}}},
             "messages": [{"role": "user", "content": f"<call_transcript>\n{transcript}\n</call_transcript>"}],
         }
 
@@ -95,8 +95,11 @@ class SonnetDecider:
 
     @staticmethod
     def answers(response: dict, questions: Sequence[Question]) -> dict[str, Answer]:
-        given = next((b.get("input") or {} for b in response.get("content") or []
-                      if b.get("type") == "tool_use" and b.get("name") == TOOL), {})
+        text = next((b.get("text") or "" for b in response.get("content") or [] if b.get("type") == "text"), "")
+        try:
+            given = json.loads(text) if text else {}
+        except json.JSONDecodeError:
+            given = {}
         out = {}
         for q in questions:
             v = given.get(q.key)
