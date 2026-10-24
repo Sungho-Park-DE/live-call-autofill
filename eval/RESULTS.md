@@ -4,6 +4,24 @@ What the live services did on our test calls, and what we decided from it. Every
 comes from a command in [README.md](README.md); raw outputs are in `eval/results/` (git-ignored,
 re-create them with the commands at the end).
 
+## Goal and what the data says
+
+Can Jev take routine work off the person on the phone, during the call, for parts orders and
+customer questions? Measured here: how much of the form is filled correctly while the caller is
+still talking. Not measured: the agent's time saved (that needs a study with real agents).
+
+- **Filled before hang-up:** of 78 field values the caller gave, Jev filled 74–75 (95 %), **0 wrong**;
+  all 24 fields that should stay empty stayed empty.
+- **Why during the call and not after it:** a general LLM after hang-up also saves typing, and only
+  ~2 s later. What it cannot do is show *during* the call what is still missing, so the agent asks
+  now instead of calling back. Jev's held fields are exactly that list.
+- **Why Jev for that:** it returns a probability, so the app fills only what is certain and leaves
+  the rest for the agent; Sonnet answers every field as certain. And at 0.43 s (p90 0.44 s) it can
+  re-decide every few seconds on partial transcripts; Sonnet takes 1.5–2.2 s per call.
+- **What still limits it:** the speech service cuts utterances late on calls without pauses
+  (section 3), so the draft trails the conversation by up to ~30 s until the app also decides on
+  partial transcripts.
+
 **Setup.** 22 labelled calls in [`cases.json`](cases.json): 18 invented (3 scripted demos + 15 short
 ones) and 4 real recordings (`audio_samples/`, two people on one mono track, 57–70 s each).
 102 checks in total (field value after the whole call, plus checkpoints mid-call, e.g. the side
