@@ -23,7 +23,8 @@ still talking. Not measured: the agent's time saved (that needs a study with rea
   partial transcripts.
 
 **Setup.** 22 labelled calls in [`cases.json`](cases.json): 18 invented (3 scripted demos + 15 short
-ones) and 4 real recordings (`audio_samples/`, two people on one mono track, 57–70 s each).
+ones) and 4 recorded test calls (`audio_samples/`: staged calls read by two people in English, one mono
+track, 57–70 s each; no customer audio).
 102 checks in total (field value after the whole call, plus checkpoints mid-call, e.g. the side
 must be `left` before the caller corrects it and `right` after). 58 decider calls per run.
 
@@ -59,7 +60,7 @@ second opinion that flags calls where the two disagree.
 | "not said yet" option | All 13 + 11 checks that should stay empty stayed empty | **keep** |
 | Option order bias | Options reversed on all 18 invented calls: 0 answers changed | no measurable first-option bias |
 
-## 3. Speech to text on real recordings (ElevenLabs Scribe v2 Realtime)
+## 3. Speech to text on the recorded test calls (ElevenLabs Scribe v2 Realtime)
 
 | Finding | Detail |
 |---|---|
@@ -70,9 +71,9 @@ second opinion that flags calls where the two disagree.
 
 Recommended settings: `ELEVENLABS_KEYTERMS=Atto,Vera,Ridge`, `ELEVENLABS_VAD_SILENCE_SECS=0.4`.
 
-## 4. The 4 real recordings end to end (STT → Jev)
+## 4. The 4 recorded test calls end to end (STT → Jev)
 
-Labels from the quotes written after each call, mapped to the form fields (extra facts such as
+Labels written by the owner for each call (what the quote should contain), mapped to the form fields (extra facts such as
 VIN, order number and photo promised are kept under `truth` in `cases.json`, not scored).
 
 | Call | What happens | Jev |
@@ -88,9 +89,9 @@ VIN, order number and photo promised are kept under `truth` in `cases.json`, not
 
 - 102 checks, mostly written by us. "0 wrong" bounds the error rate only loosely (≈3 % at 95 %
   confidence, rule of three).
-- 4 real recordings, one speaker pair, English, mono. Real phone audio, other accents and German are
-  not measured.
-- Latency measured from one location in Germany; cost not measured.
+- 4 recorded test calls, one speaker pair, **English only**, mono, 16 kHz. Other languages, accents
+  and narrowband phone audio (8 kHz) are **not measured**; results may not carry over.
+- Latency measured from the developer's PC only; cost not measured.
 - The recording cases freeze one STT run as their lines; a different VAD setting changes the line
   numbers used by mid-call checkpoints.
 

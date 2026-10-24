@@ -1,5 +1,5 @@
 {
-  "note": "Invented calls, plus rec-*: real recordings (recordings/<recording>.wav, lines = ElevenLabs finals with VAD 0.4 and keyterms, truth = labels outside the form). expect: the value that should be suggested after the whole call; null = nothing should be suggested; a missing key is not scored. after: the same, after line N (1-based).",
+  "note": "Invented calls, plus rec-*: staged test calls read aloud in English (audio_samples/, converted to recordings/<recording>.wav; lines = ElevenLabs finals with VAD 0.4 and keyterms, truth = labels outside the form). expect: the value that should be suggested after the whole call; null = nothing should be suggested; a missing key is not scored. after: the same, after line N (1-based).",
   "cases": [
     {"id": "demo-1-simple", "demo": "1-simple",
      "expect": {"intent": "parts quote", "car": "Atto", "zone": "front bumper", "side": null, "severity": "minor"}},
