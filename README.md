@@ -1,21 +1,24 @@
-# call-to-quote
+# live-call-autofill
 
 **While a customer is still on the phone, the quote form fills itself in — and the person on the call has the last word.**
 
 A live phone call is turned into text (speech-to-text), a fast *decision model* picks the car, body zone, side and damage level from fixed lists, and the parts quote is pre-filled as **suggestions**. Nothing is sent until the person confirms. Anything the person types is never overwritten by the machine.
 
-![Demo: a caller corrects "left" to "right" and the draft follows](docs/img/demo-correction.png)
+![Demo: a caller corrects "left" to "right", the draft follows, and the damage level still missing is listed as a question to ask](docs/img/demo-correction.png)
 
-> Status: the pipeline, the human-in-the-loop form and the keyless demo work and are tested. The real speech-to-text (ElevenLabs Scribe v2 Realtime) and decision-model (Jev) adapters are being built and measured; see [Roadmap](#roadmap).
+> Status: the pipeline, the human-in-the-loop form and the keyless demo work and are tested. The real speech-to-text (ElevenLabs Scribe v2 Realtime) and decision-model (Jev) adapters are built and measured on staged English test calls: [eval/RESULTS.md](eval/RESULTS.md). Not done: narrowband phone audio, other languages, a real catalog; see [Roadmap](#roadmap).
+
+**What was measured** (22 labelled calls, 102 checks, mostly written by me; 4 staged recordings, English only):
+- Jev filled 74–75 of the 78 field values the caller gave before hang-up, **0 wrong**; all 24 fields that should stay empty stayed empty. At that sample size "0 wrong" bounds the true error rate only loosely (about 3 %).
+- A general LLM (Claude Sonnet 5.5) also had 0 wrong in the same test (77 right); Jev was about 3.5× faster (0.43 s vs 1.5 s per decision), which is what makes re-deciding every few seconds practical. Whether Sonnet's missing probability causes wrong fills in practice was not measured.
+- Deciding on partial speech brought the moment the draft held every expected field forward by 4–23 s on the 4 recordings, with the same final draft and no wrong value shown.
 
 ## Why
 
 This grew out of automating an auto-parts dealership in Korea. The owner estimates that about 95% of orders arrive by phone: a repair shop calls, says something like *"a fender for the Vera — no, not left, the right one"*, and the dealer types it into a parts catalog and then into the dealer's ERP while still talking.
 
-The dealership already runs a version-1 system I built (not in this repository, because it contains customer data and talks to systems I cannot publish):
-- a browser quote tool used every day: pick car and damage, get the parts list from a VIN lookup in the parts catalog;
-- a desktop bot that types the confirmed quote into the dealer ERP through its scripting interface, restricted to an allowlist of screens and functions, refusing anything that looks like delete, print or invoice;
-- caller-ID and recording watchers on the office PC, and a self-healing server that restarts what stops answering.
+The dealership already runs a version-1 system I built: a browser quote tool, a desktop bot that types the confirmed quote into the dealer ERP, and watchers on the office PC. It is not in this repository because it contains customer data.
+Its design, on invented fake systems, is in [legacy-erp-automation](https://github.com/Sungho-Park-DE/legacy-erp-automation).
 
 This repository is the next step, rebuilt from scratch with invented data: **take the typing out of the call itself.**
 
@@ -26,7 +29,7 @@ flowchart LR
   mic[Phone / mic audio] -->|PCM 16 kHz| stt[SpeechToText adapter<br/>ElevenLabs · fake]
   typed[Typed line / demo call] --> call
   stt -->|partial + final segments| call[Call<br/>transcript]
-  call -->|each final segment| dec[Decider adapter<br/>Jev · fake]
+  call -->|each final segment, partials every few seconds| dec[Decider adapter<br/>Jev · fake]
   cat[Catalog<br/>options + parts] -->|choices| dec
   dec -->|answer + confidence| sync{confidence ≥ threshold?}
   sync -->|yes| draft[Draft<br/>suggested value]
@@ -40,7 +43,8 @@ flowchart LR
 **Design rules that come from the real shop:**
 - *The person has the last word.* Machine values are shown as suggestions with their confidence; a value the person set is never overwritten; nothing is created without **Confirm**.
 - *Empty beats wrong.* A low-confidence answer retracts an earlier suggestion instead of leaving a stale guess.
-- *Last mention wins.* Callers correct themselves ("left — no, right"); every final sentence triggers a fresh decision over the whole transcript, and answers to older transcripts are dropped.
+- *Last mention wins.* Callers correct themselves ("left — no, right"); every final sentence, and every few seconds of partial speech, triggers a fresh decision over the whole transcript, and answers to older transcripts are dropped.
+- *Say what is missing.* Fields that are still empty are listed as questions to ask before hanging up ("Side: not heard yet → Which side?"), and a failing service shows a notice instead of ending the call.
 - *When unsure, include.* If the side is unknown, both sides go on the quote — removing a line is easier than adding one.
 
 ## How data shaped the logic
@@ -114,13 +118,14 @@ Open http://127.0.0.1:8800, press **Start call**, then **Play demo call** — or
 
 Tests (about a second, no network): `.venv/bin/python -m pytest -q`
 
-With real engines: set `CTQ_STT=elevenlabs`, `CTQ_DECIDER=jev` and the keys in `.env`; the **Mic** button then streams your microphone.
+With real engines: set `CTQ_STT=elevenlabs`, `CTQ_DECIDER=jev` and the keys in `.env`; the **Mic** button then streams your microphone. `CTQ_PARTIAL_DECIDE_SECS` (default 2.5, 0 = final segments only) sets how often the draft is re-decided while the caller is still talking. Measurements: [eval/RESULTS.md](eval/RESULTS.md).
 
 ## Roadmap
 
-- [ ] ElevenLabs Scribe v2 Realtime adapter (measured on English 16 kHz test calls only)
-- [ ] Jev adapter, and an evaluation on recorded test calls: accuracy per field, latency, and the threshold that keeps wrong suggestions rare
-- [ ] Words that phone speech-to-text gets wrong (model names, part words, numbers; English only so far) — keyword boosting with the catalog's own words
+- [x] ElevenLabs Scribe v2 Realtime adapter and Jev adapter, measured on staged English test calls ([eval/RESULTS.md](eval/RESULTS.md))
+- [x] Keyword boosting with the catalog's own words (`ELEVENLABS_KEYTERMS`), decisions on partial speech, notices instead of a dropped call when a service fails
+- [ ] Narrowband (8 kHz) phone audio, other accents and languages: not measured
+- [ ] Number of Jev calls per minute with partial decisions (cost), and less flicker on fields near the threshold
 - [ ] Phone audio into the PC (handset tap or line adapter) instead of a microphone
 - [ ] Several zones per call (one draft per zone)
 
