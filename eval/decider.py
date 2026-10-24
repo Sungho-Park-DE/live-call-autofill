@@ -61,6 +61,7 @@ class Run:
     expected: dict[tuple[str, int, str], str | None] = field(default_factory=dict)
     got: dict[str, dict[tuple[str, int, str], Answer | None]] = field(default_factory=dict)
     order_flips: list[tuple[str, str]] = field(default_factory=list)
+    order_cases: int = 0
 
 
 def reversed_options(qs: Sequence[Question]) -> list[Question]:
@@ -96,6 +97,7 @@ async def run(decider, cases: list[dict], *, order: bool = False) -> Run:
                     r.got[m][(c["id"], n, k)] = answers.get(k)
             if order and raw and n == len(c["lines"]):
                 flipped = decider.answers(await decider.ask(transcript, reversed_options(qs)), qs)
+                r.order_cases += 1
                 for k in per_mode[modes[0]].keys() | flipped.keys():
                     a, b = per_mode[modes[0]].get(k), flipped.get(k)
                     if (a and a.value) != (b and b.value):
@@ -157,8 +159,9 @@ def report(r: Run) -> str:
             lines.append(f"{t:4.2f} {s['right']:5} {s['wrong']:5} {s['held']:5} {(s['wrong'] / n if n else 0):11.2f}")
         lines.append(f"\n[{mode}] mistakes at settings thresholds")
         lines += mistakes(r, mode, thresholds) or ["  none"]
-    if r.order_flips:
-        lines.append(f"\noption order changed the answer {len(r.order_flips)}x: {r.order_flips}")
+    if r.order_cases:
+        lines.append(f"\noption order (reversed) changed the answer {len(r.order_flips)}x "
+                     f"over {r.order_cases} cases: {r.order_flips}")
     return "\n".join(lines)
 
 

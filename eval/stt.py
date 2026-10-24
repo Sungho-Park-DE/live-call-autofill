@@ -117,7 +117,7 @@ async def stream_file(stt, pcm: bytes, speed: float = 1.0, on_segment=None) -> d
             "last_final": max((at for at, s in events if s.final), default=None), "done": done}
 
 
-async def evaluate(path: Path, speed: float = 1.0, decide: bool = False) -> int:
+async def evaluate(path: Path, speed: float = 1.0, decide: bool = False, verbose: bool = False) -> int:
     from eval.decider import load_cases
 
     pcm = read_wav(path)
@@ -134,8 +134,11 @@ async def evaluate(path: Path, speed: float = 1.0, decide: bool = False) -> int:
         flow = Flow(make_decider(settings.DECIDER))
         call = flow.start_call("eval")
 
+    started = time.perf_counter()
+
     async def on_segment(seg):
-        print(f"  {'FINAL  ' if seg.final else 'partial'} {seg.text}")
+        if seg.final or verbose:
+            print(f"  {time.perf_counter() - started:6.1f}s {'FINAL  ' if seg.final else 'partial'} {seg.text}")
         if flow:
             await flow.hear(call, seg)
             if seg.final:

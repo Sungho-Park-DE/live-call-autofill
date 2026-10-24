@@ -19,6 +19,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("wav", type=Path)
     s.add_argument("--speed", type=float, default=1.0, help="1 = real time, 0 = as fast as possible")
     s.add_argument("--decide", action="store_true", help="feed segments into the Flow (CTQ_DECIDER)")
+    s.add_argument("--verbose", action="store_true", help="also print every partial transcript")
     a = p.parse_args(argv)
 
     if a.cmd == "decider":
@@ -48,7 +49,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     from eval.stt import evaluate
 
-    return asyncio.run(evaluate(a.wav, a.speed, a.decide))
+    return asyncio.run(evaluate(a.wav, a.speed, a.decide, a.verbose))
 
 
 if __name__ == "__main__":
