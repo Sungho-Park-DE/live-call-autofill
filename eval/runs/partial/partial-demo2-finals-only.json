@@ -1,0 +1,29 @@
+{
+ "demo": "demo2",
+ "partial_secs": 0.0,
+ "audio_seconds": 62.3,
+ "final_draft": {
+  "intent": "other",
+  "car": "Vera",
+  "zone": "headlamp"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 61.6,
+   "draft": {
+    "intent": "other",
+    "car": "Vera",
+    "zone": "headlamp"
+   },
+   "transcript": "mber? Uh, yeah. It's SH4529. Great. Thanks. We'll check the order status for you. Perfect."
+  }
+ ],
+ "finals_at": [
+  22.6,
+  60.6,
+  69.2
+ ],
+ "partials": 63,
+ "jev_calls": null
+}

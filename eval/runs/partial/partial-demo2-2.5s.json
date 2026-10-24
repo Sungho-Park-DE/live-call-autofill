@@ -1,0 +1,85 @@
+{
+ "demo": "demo2",
+ "partial_secs": 2.5,
+ "audio_seconds": 62.3,
+ "final_draft": {
+  "car": "Vera",
+  "intent": "other",
+  "zone": "headlamp"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 28.7,
+   "draft": {
+    "zone": "headlamp"
+   },
+   "transcript": "'s 731842. Perfect. Thanks. So, what's going on? Yeah, I ordered a headlamp for my Vera on"
+  },
+  {
+   "t": 30.7,
+   "draft": {
+    "car": "Vera"
+   },
+   "transcript": " going on? Yeah, I ordered a headlamp for my Vera on Monday, but the tracking hasn't moved"
+  },
+  {
+   "t": 33.9,
+   "draft": {
+    "car": "Vera",
+    "intent": "other"
+   },
+   "transcript": " a headlamp for my Vera on Monday, but the tracking hasn't moved in three days. Oh, I see."
+  },
+  {
+   "t": 48.3,
+   "draft": {
+    "car": "Vera",
+    "intent": "other",
+    "zone": "headlamp"
+   },
+   "transcript": "g on the delivery? Yeah, exactly. I already paid for the part. I just wanna know when it's"
+  },
+  {
+   "t": 51.3,
+   "draft": {
+    "car": "Vera",
+    "intent": "other"
+   },
+   "transcript": "he part. I just wanna know when it's actually gonna ship. Sure. Do you happen to have your"
+  },
+  {
+   "t": 53.3,
+   "draft": {
+    "car": "Vera",
+    "intent": "other",
+    "zone": "headlamp"
+   },
+   "transcript": "ow when it's actually gonna ship. Sure. Do you happen to have your order number? Uh, yeah."
+  },
+  {
+   "t": 68.8,
+   "draft": {
+    "car": "Vera",
+    "intent": "other"
+   },
+   "transcript": "tely. We'll look into it and get back to you. All right. Appreciate it. No problem. Have a"
+  },
+  {
+   "t": 69.6,
+   "draft": {
+    "car": "Vera",
+    "intent": "other",
+    "zone": "headlamp"
+   },
+   "transcript": "l look into it and get back to you. All right. Appreciate it. No problem. Have a good one."
+  }
+ ],
+ "finals_at": [
+  22.6,
+  60.5,
+  69.2
+ ],
+ "partials": 63,
+ "jev_calls": null
+}

@@ -1,0 +1,82 @@
+{
+ "demo": "demo4",
+ "partial_secs": 2.5,
+ "audio_seconds": 59.7,
+ "final_draft": {
+  "car": "Atto",
+  "zone": "rear bumper",
+  "severity": "moderate",
+  "intent": "parts quote",
+  "side": "left"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 36.5,
+   "draft": {
+    "car": "Atto"
+   },
+   "transcript": "h the car? Yeah. So, I've got an Atto, the little SUV. Someone backed into it in a parking"
+  },
+  {
+   "t": 43.8,
+   "draft": {
+    "car": "Atto",
+    "zone": "rear bumper"
+   },
+   "transcript": "the other day. Oh, I see. What got damaged? Mostly the rear bumper. There's a crack in the"
+  },
+  {
+   "t": 46.7,
+   "draft": {
+    "car": "Atto",
+    "zone": "rear bumper",
+    "severity": "moderate"
+   },
+   "transcript": "y the rear bumper. There's a crack in the middle, a dent on the left side, and some pretty"
+  },
+  {
+   "t": 48.7,
+   "draft": {
+    "car": "Atto",
+    "zone": "rear bumper",
+    "severity": "moderate",
+    "side": "left"
+   },
+   "transcript": "'s a crack in the middle, a dent on the left side, and some pretty deep scratches. Gotcha."
+  },
+  {
+   "t": 57.0,
+   "draft": {
+    "car": "Atto",
+    "zone": "rear bumper",
+    "severity": "moderate",
+    "intent": "parts quote"
+   },
+   "transcript": " I just want to get a rough price for the bumper. Just the part, no installation. Sure. Do"
+  },
+  {
+   "t": 59.0,
+   "draft": {
+    "car": "Atto",
+    "zone": "rear bumper",
+    "severity": "moderate",
+    "intent": "parts quote",
+    "side": "left"
+   },
+   "transcript": "or the bumper. Just the part, no installation. Sure. Do you have any pictures? Yeah, I can"
+  }
+ ],
+ "finals_at": [
+  4.9,
+  12.8,
+  20.7,
+  22.3,
+  27.0,
+  30.6,
+  59.8,
+  66.3
+ ],
+ "partials": 58,
+ "jev_calls": null
+}

@@ -1,0 +1,55 @@
+{
+ "demo": "demo1",
+ "partial_secs": 2.5,
+ "audio_seconds": 70.3,
+ "final_draft": {
+  "intent": "parts quote",
+  "car": "Vera",
+  "zone": "quarter panel"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 10.5,
+   "draft": {
+    "intent": "parts quote"
+   },
+   "transcript": "Good morning. Hi. Good morning. Yeah, I need a price for a part on my car. Oh, absolutely."
+  },
+  {
+   "t": 30.4,
+   "draft": {
+    "intent": "parts quote",
+    "car": "Vera"
+   },
+   "transcript": "83. Perfect. Thanks. So, what seems to be the problem? Yeah, I've got a Vera, and I need a"
+  },
+  {
+   "t": 33.4,
+   "draft": {
+    "intent": "parts quote",
+    "car": "Vera",
+    "zone": "front fender"
+   },
+   "transcript": "em? Yeah, I've got a Vera, and I need a quote for the front fender. All right. The front f"
+  },
+  {
+   "t": 40.5,
+   "draft": {
+    "intent": "parts quote",
+    "car": "Vera",
+    "zone": "quarter panel"
+   },
+   "transcript": "badly damaged? Wait, actually, sorry, I meant the back one. You know, the panel just above"
+  }
+ ],
+ "finals_at": [
+  4.9,
+  18.3,
+  24.2,
+  62.1,
+  78.1
+ ],
+ "partials": 71,
+ "jev_calls": null
+}

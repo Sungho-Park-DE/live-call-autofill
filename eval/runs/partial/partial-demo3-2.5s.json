@@ -1,0 +1,85 @@
+{
+ "demo": "demo3",
+ "partial_secs": 2.5,
+ "audio_seconds": 57.3,
+ "final_draft": {
+  "car": "Ridge",
+  "zone": "side mirror",
+  "side": "right",
+  "severity": "moderate",
+  "intent": "parts quote"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 18.0,
+   "draft": {
+    "car": "Ridge"
+   },
+   "transcript": "p you a little quicker, could I grab the last six digits of your VIN first? Yeah, hang on."
+  },
+  {
+   "t": 31.0,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror"
+   },
+   "transcript": "icle? Yeah, it's a Ridge pickup. Someone knocked the side mirror off yesterday. Oh, I see."
+  },
+  {
+   "t": 34.0,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror",
+    "side": "left"
+   },
+   "transcript": "ne knocked the side mirror off yesterday. Oh, I see. Which side was it? The driver's side."
+  },
+  {
+   "t": 38.6,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror"
+   },
+   "transcript": "s it? The driver's side. Hmm. Wait, no, sorry. I'm looking at it right now. It's actually-"
+  },
+  {
+   "t": 40.6,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror",
+    "side": "right"
+   },
+   "transcript": ". Hmm. Wait, no, sorry. I'm looking at it right now. It's actually the passenger side. Ah."
+  },
+  {
+   "t": 49.0,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror",
+    "side": "right",
+    "severity": "moderate"
+   },
+   "transcript": "etely broken? Pretty much. The whole thing's hanging by the wires. Gotcha. Are you looking"
+  },
+  {
+   "t": 54.0,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror",
+    "side": "right",
+    "severity": "moderate",
+    "intent": "parts quote"
+   },
+   "transcript": "replacement? Yeah, exactly. Could you give me a rough price for the whole mirror assembly?"
+  }
+ ],
+ "finals_at": [
+  17.5,
+  33.6,
+  34.8,
+  64.0
+ ],
+ "partials": 58,
+ "jev_calls": null
+}

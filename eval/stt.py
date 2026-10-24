@@ -135,18 +135,27 @@ async def evaluate(path: Path, speed: float = 1.0, decide: bool = False, verbose
         call = flow.start_call("eval")
 
     started = time.perf_counter()
+    shown = None
+
+    def show_draft():
+        nonlocal shown
+        f = {k: (e["value"], round(e["confidence"] or 0, 2))
+             for k, e in flow.drafts.view(call)["fields"].items() if e["value"]}
+        if f != shown:
+            print(f"  {time.perf_counter() - started:6.1f}s draft: {f}")
+            shown = f
 
     async def on_segment(seg):
         if seg.final or verbose:
             print(f"  {time.perf_counter() - started:6.1f}s {'FINAL  ' if seg.final else 'partial'} {seg.text}")
         if flow:
             await flow.hear(call, seg)
-            if seg.final:
-                f = {k: (e["value"], round(e["confidence"] or 0, 2))
-                     for k, e in flow.drafts.view(call)["fields"].items() if e["value"]}
-                print(f"          draft: {f}")
+            show_draft()
 
     res = await stream_file(stt, pcm, speed, on_segment)
+    if flow and flow.partial_secs > 0:
+        await asyncio.sleep(flow.partial_secs + 2)  # the decision scheduled after the last partial
+        show_draft()
     out = settings.ROOT / "eval" / "results" / f"stt-{path.stem}-{time.strftime('%Y%m%d-%H%M%S')}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps({"recording": path.stem, "config": stt.session_config, "finals": res["finals"],

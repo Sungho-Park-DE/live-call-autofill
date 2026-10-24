@@ -1,0 +1,38 @@
+{
+ "demo": "demo1",
+ "partial_secs": 0.0,
+ "audio_seconds": 70.3,
+ "final_draft": {
+  "intent": "parts quote",
+  "car": "Vera",
+  "zone": "quarter panel"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 19.4,
+   "draft": {
+    "intent": "parts quote"
+   },
+   "transcript": "u a little quicker, could I grab the last six digits of your VIN first? Uh, sure. Hang on."
+  },
+  {
+   "t": 63.1,
+   "draft": {
+    "intent": "parts quote",
+    "car": "Vera",
+    "zone": "quarter panel"
+   },
+   "transcript": "yet. That's all right. Do you know if it's dented or scratched? Uh, I really couldn't say."
+  }
+ ],
+ "finals_at": [
+  4.8,
+  18.4,
+  24.1,
+  62.1,
+  78.2
+ ],
+ "partials": 71,
+ "jev_calls": null
+}

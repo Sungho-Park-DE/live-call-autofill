@@ -1,0 +1,50 @@
+{
+ "demo": "demo3",
+ "partial_secs": 0.0,
+ "audio_seconds": 57.3,
+ "final_draft": {
+  "car": "Ridge",
+  "zone": "side mirror",
+  "side": "right",
+  "intent": "parts quote",
+  "severity": "moderate"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 18.7,
+   "draft": {
+    "car": "Ridge"
+   },
+   "transcript": "p you a little quicker, could I grab the last six digits of your VIN first? Yeah, hang on."
+  },
+  {
+   "t": 34.8,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror",
+    "side": "left"
+   },
+   "transcript": "ne knocked the side mirror off yesterday. Oh, I see. Which side was it? The driver's side."
+  },
+  {
+   "t": 65.1,
+   "draft": {
+    "car": "Ridge",
+    "zone": "side mirror",
+    "side": "right",
+    "intent": "parts quote",
+    "severity": "moderate"
+   },
+   "transcript": "t. We'll check the part and get back to you. Awesome, thanks. No problem. Have a good one."
+  }
+ ],
+ "finals_at": [
+  17.7,
+  33.5,
+  34.8,
+  64.1
+ ],
+ "partials": 58,
+ "jev_calls": null
+}

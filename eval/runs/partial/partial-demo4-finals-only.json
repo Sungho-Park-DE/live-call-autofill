@@ -1,0 +1,48 @@
+{
+ "demo": "demo4",
+ "partial_secs": 0.0,
+ "audio_seconds": 59.7,
+ "final_draft": {
+  "intent": "parts quote",
+  "car": "Atto",
+  "zone": "rear bumper",
+  "severity": "moderate",
+  "side": "left"
+ },
+ "problems": {},
+ "timeline": [
+  {
+   "t": 60.9,
+   "draft": {
+    "intent": "parts quote",
+    "car": "Atto",
+    "zone": "rear bumper",
+    "severity": "moderate"
+   },
+   "transcript": "ust the part, no installation. Sure. Do you have any pictures? Yeah, I can send some over."
+  },
+  {
+   "t": 67.4,
+   "draft": {
+    "intent": "parts quote",
+    "car": "Atto",
+    "zone": "rear bumper",
+    "severity": "moderate",
+    "side": "left"
+   },
+   "transcript": "ll check the part and get back to you. Awesome. Thanks a lot. No problem. Have a good one."
+  }
+ ],
+ "finals_at": [
+  4.4,
+  12.7,
+  20.7,
+  22.1,
+  26.8,
+  30.6,
+  59.9,
+  66.4
+ ],
+ "partials": 58,
+ "jev_calls": null
+}

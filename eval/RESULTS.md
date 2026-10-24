@@ -24,9 +24,11 @@ still talking. Not measured: the agent's time saved (that needs a study with rea
   every few seconds on partial transcripts. *Not measured:* whether Sonnet returning no probability
   (so every answer counts as certain) leads to wrong values being filled in practice (neither model
   produced a wrong value in 6 runs), and cost.
-- **What still limits it:** the speech service cuts utterances late on calls without pauses
-  (section 3), so the draft trails the conversation by up to ~30 s until the app also decides on
-  partial transcripts.
+- **What limited it, and the fix:** the speech service cuts utterances late on calls without pauses
+  (section 3), so the draft trailed the conversation by up to ~30 s. The app now also decides on
+  partial transcripts, at most every 2.5 s: on the 4 recordings the draft held every expected field
+  4–23 s earlier and ended identical (section 4b). Still open: a near-threshold field can flicker
+  on and off while the caller talks, and the number of Jev calls per minute was not measured.
 
 **Setup.** 22 labelled calls in [`cases.json`](cases.json): 18 invented (3 scripted demos + 15 short
 ones) and 4 recorded test calls (`audio_samples/`: staged calls read by two people in English, one mono
@@ -74,7 +76,7 @@ matter, e.g. a nightly second opinion that flags calls where the two disagree.
 | Transcripts are good | Corrections ("driver's side… no, sorry… passenger side"), VIN digits ("731842"), order numbers ("SH4529") come through cleanly |
 | Invented model names need keyterms | Without them "Atto" became "auto" / "ATO"; with `ELEVENLABS_KEYTERMS=Atto,Vera,Ridge` it is "Atto" (server echoes the terms) |
 | Utterances are cut late | The recordings have almost no pauses (longest 0.95 s, most 0.3–0.6 s). With default VAD: 2 finals per call, the first after ~40 s. With `ELEVENLABS_VAD_SILENCE_SECS=0.4`: 3–8 finals, but gaps of up to 30 s remain, and the same cuts on every run |
-| Consequence | The form updates only on final transcripts, so a car named at ~35 s appeared in the draft at ~60 s. Fix belongs in the app: also decide on partial transcripts, debounced |
+| Consequence | The form updates only on final transcripts, so a car named at ~35 s appeared in the draft at ~60 s. Fix belongs in the app: also decide on partial transcripts, debounced (done, section 4b) |
 
 Recommended settings: `ELEVENLABS_KEYTERMS=Atto,Vera,Ridge`, `ELEVENLABS_VAD_SILENCE_SECS=0.4`.
 
@@ -92,10 +94,41 @@ VIN, order number and photo promised are kept under `truth` in `cases.json`, not
 
 28 checks: 16 right, **0 wrong**, 12 held (11 of them correctly empty).
 
+## 4b. Deciding on partial transcripts, and warming the connection
+
+The 4 recordings streamed in real time through the same Flow, once with final segments only
+(`CTQ_PARTIAL_DECIDE_SECS=0`) and once with `2.5`. Time = seconds into the audio when the draft first
+held every expected field of the case (`cases.json`).
+
+| Recording (audio length) | Finals only | Partials every 2.5 s | Earlier by | Final draft |
+|---|---|---|---|---|
+| demo1 (70 s) Vera, front fender → quarter panel | 63.1 s | 40.5 s | 22.6 s | same |
+| demo2 (62 s) delivery question, headlamp | 61.6 s | 48.3 s | 13.3 s | same |
+| demo3 (57 s) mirror, driver's → passenger side | 65.1 s | 54.0 s | 11.1 s | same |
+| demo4 (60 s) rear bumper | 60.9 s | 57.0 s | 3.9 s | same |
+
+- **No wrong value** at any moment, judged by reading each timeline against what the caller had said
+  by then (`runs/partial/`). Where the caller corrected themselves the draft followed: demo1 showed
+  `front fender` at 33.4 s and `quarter panel` at 40.5 s ("sorry, I meant the back one"); demo3 held
+  `left` from 34.0 s, dropped it at 38.6 s ("Wait, no, sorry") and showed `right` at 40.6 s, while with
+  finals only `right` appeared at 65.1 s.
+- **Flicker:** demo2's `zone = headlamp` (the field that sat at 0.51–0.59 in section 4) was shown and
+  taken away four times across the call (it was present at the end). It is never wrong, but a person
+  watching sees it blink.
+- **Gain depends on pauses:** demo4 has frequent finals, so it gains 3.9 s; demo1 has long stretches
+  without a final and gains 22.6 s.
+- **Cost not measured:** at most one Jev call per 2.5 s while the transcript changes.
+
+Jev connection opened at call start (`JevDecider.warm()`, a HEAD request to the API host, 4 trials
+each): the first decide takes **1.41–1.58 s without it and 0.44 s with it**; the warm-up itself takes
+about 1.4 s in the background. Later decides take 0.44 s either way.
+
 ## 5. Limits
 
 - 102 checks, mostly written by us. "0 wrong" bounds the error rate only loosely (≈3 % at 95 %
   confidence, rule of three).
+- Section 4b is one run per recording and setting, and "no wrong value" was judged by reading the
+  timelines, not by a scored checkpoint.
 - 4 recorded test calls, one speaker pair, **English only**, mono, 16 kHz. Other languages, accents
   and narrowband phone audio (8 kHz) are **not measured**; results may not carry over.
 - Latency measured from the developer's PC only; cost not measured.
