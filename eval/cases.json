@@ -1,5 +1,5 @@
 {
-  "note": "Invented calls. expect: the value that should be suggested after the whole call; null = nothing should be suggested; a missing key is not scored. after: the same, after line N (1-based).",
+  "note": "Invented calls, plus rec-*: real recordings (recordings/<recording>.wav, lines = ElevenLabs finals with VAD 0.4 and keyterms, truth = labels outside the form). expect: the value that should be suggested after the whole call; null = nothing should be suggested; a missing key is not scored. after: the same, after line N (1-based).",
   "cases": [
     {"id": "demo-1-simple", "demo": "1-simple",
      "expect": {"intent": "parts quote", "car": "Atto", "zone": "front bumper", "side": null, "severity": "minor"}},
@@ -38,6 +38,46 @@
     {"id": "radiator", "lines": ["Ridge truck, I hit a deer head-on.", "The radiator is leaking and the core support is bent, the airbags went off."],
      "expect": {"car": "Ridge", "zone": "radiator support", "severity": "severe"}},
     {"id": "driver-rear-door", "lines": ["The driver's side back door on my Vera has a big dent from a shopping cart."],
-     "expect": {"car": "Vera", "zone": "rear door", "side": "left", "severity": "moderate"}}
+     "expect": {"car": "Vera", "zone": "rear door", "side": "left", "severity": "moderate"}},
+    {"id": "rec-demo1-fender-to-quarter", "recording": "demo1",
+     "lines": [
+       "SH Auto Parts. Good morning.",
+       "Hi. Good morning. Yeah, I need a price for a part on my car. Oh, absolutely. Just so I can help you a little quicker, could I grab the last six digits of your VIN first? Uh, sure. Hang on.",
+       "It's 629483.",
+       "Perfect. Thanks. So, what seems to be the problem? Yeah, I've got a Vera, and I need a quote for the front fender. All right, the front fender. Is it badly damaged? Wait, actually, sorry, I meant the back one. You know, the panel just above the rear wheel. Oh, gotcha. So, the rear quarter panel? Yeah, that's the one. Sorry about that. No worries. And how bad is the damage? Um, honestly, I'm not really sure. My husband was driving, and I haven't had a proper look at it yet. That's all right. Do you know if it's dented or scratched? Uh, I really couldn't say.",
+       "I just know that something happened to that panel. No problem. Would you be able to send us a photo later? Yeah, sure. I'll ask my husband to take one. Perfect. Once we see it, we can help you with the quote. Sounds good. Thanks so much. You're welcome. Have a good day."],
+     "after": {"3": {"intent": "parts quote", "car": null, "zone": null}},
+     "expect": {"intent": "parts quote", "car": "Vera", "zone": "quarter panel", "side": null, "severity": null},
+     "truth": {"vin6": "629483", "first_zone": "front fender", "damage_type": "unknown", "photo": "later"}},
+    {"id": "rec-demo2-delivery", "recording": "demo2",
+     "lines": [
+       "SH Auto Parts. Good morning. Hi. Morning. Yeah, I'm calling about an order I placed earlier this week. Oh, sure. Just so I can pull up your vehicle details, could I grab the last six digits of your VIN first? Yeah, hang on a sec. It's 731842.",
+       "Perfect. Thanks. So, what's going on? Yeah, I ordered a headlamp for my Vera on Monday, but the tracking hasn't moved in three days. Oh, I see. Have you received a shipping confirmation? Yeah, I got an email, but the tracking still says the same thing. Right. Gotcha. So, you're checking on the delivery? Yeah, exactly. I already paid for the part. I just wanna know when it's actually gonna ship. Sure. Do you happen to have your order number? Uh, yeah. It's SH4529. Great. Thanks. We'll check the order status for you. Perfect.",
+       "Could you let me know if there's any delay? Absolutely. We'll look into it and get back to you. All right. Appreciate it. No problem. Have a good one."],
+     "after": {"1": {"car": null, "zone": null}},
+     "expect": {"intent": "other", "car": "Vera", "zone": "headlamp", "side": null, "severity": null},
+     "truth": {"vin6": "731842", "inquiry": "delivery", "order": "SH4529", "ordered": "Monday", "paid": true, "problem": "tracking unchanged for 3 days"}},
+    {"id": "rec-demo3-mirror-side-correction", "recording": "demo3",
+     "lines": [
+       "SH Auto Parts. Good morning. Hi. Morning. Yeah, I've got a problem with my pickup, and I was hoping you could help. Oh, absolutely. Just so I can help you a little quicker, could I grab the last six digits of your VIN first? Yeah, hang on.",
+       "It's 592416. Perfect. Thanks. So, what's going on with the vehicle? Yeah, it's a Ridge pickup. Someone knocked the side mirror off yesterday. Oh, I see. Which side was it? The driver's side.",
+       "Hmm.",
+       "Wait, no, sorry. I'm looking at it right now. It's actually the passenger side. Ah, okay, passenger side. Is the mirror completely broken? Pretty much. The whole thing's hanging by the wires. Gotcha. Are you looking for a replacement? Yeah, exactly. Could you give me a rough price for the whole mirror assembly? Sure. Do you have any pictures? Yeah, I can send a couple over. Perfect. We'll check the part and get back to you. Awesome, thanks. No problem. Have a good one."],
+     "after": {"2": {"side": "left"}},
+     "expect": {"intent": "parts quote", "car": "Ridge", "zone": "side mirror", "side": "right", "severity": "moderate"},
+     "truth": {"vin6": "592416", "part": "side mirror assembly", "state": "hanging by the wires", "photo": true, "severity_note": "moderate is a provisional label"}},
+    {"id": "rec-demo4-rear-bumper", "recording": "demo4",
+     "lines": [
+       "SH Auto Parts. Good morning.",
+       "Hi. Yeah, good morning. Um, I've got a problem with my car, and I was wondering if you could help me out. Oh, absolutely.",
+       "Just so I can help you a little quicker, could I grab the last six digits of your VIN first? Yeah, sure. Hang on a sec.",
+       "Okay.",
+       "482731.",
+       "Perfect. Thanks. So, what's going on with the car?",
+       "Yeah. So, I've got an Atto, the little SUV. Someone backed into it in a parking lot the other day. Oh, I see. What got damaged? Mostly the rear bumper. There's a crack in the middle, a dent on the left side, and some pretty deep scratches. Gotcha. Are the lights okay? Yeah, lights are fine. I just want to get a rough price for the bumper. Just the part, no installation. Sure. Do you have any pictures? Yeah, I can send some over.",
+       "Perfect. We'll check the part and get back to you. Awesome. Thanks a lot. No problem. Have a good one."],
+     "after": {"6": {"intent": null, "car": null, "zone": null}},
+     "expect": {"intent": "parts quote", "car": "Atto", "zone": "rear bumper", "severity": "moderate"},
+     "truth": {"vin6": "482731", "damage": "crack, dent, scratches", "photo": true, "severity_note": "moderate is a provisional label; side not labelled (dent on the left of a whole bumper)"}}
   ]
 }

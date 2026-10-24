@@ -147,7 +147,13 @@ async def evaluate(path: Path, speed: float = 1.0, decide: bool = False, verbose
                 print(f"          draft: {f}")
 
     res = await stream_file(stt, pcm, speed, on_segment)
-    print(f"\nkeyterms echoed by server: {stt.session_config.get('keyterms')}")
+    out = settings.ROOT / "eval" / "results" / f"stt-{path.stem}-{time.strftime('%Y%m%d-%H%M%S')}.json"
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(json.dumps({"recording": path.stem, "config": stt.session_config, "finals": res["finals"],
+                               "final_at": [round(at, 1) for at, s in res["events"] if s.final]},
+                              indent=1, ensure_ascii=False), encoding="utf-8")
+    print(f"\nsaved {out.relative_to(settings.ROOT)}")
+    print(f"keyterms echoed by server: {stt.session_config.get('keyterms')}")
     print(f"audio {res['audio_seconds']:.1f}s, first partial at {res['first_partial'] or 0:.2f}s, "
           f"audio ended {res['audio_end'] or 0:.2f}s, last final {res['last_final'] or 0:.2f}s, stream closed {res['done']:.2f}s")
     if reference:
@@ -155,7 +161,7 @@ async def evaluate(path: Path, speed: float = 1.0, decide: bool = False, verbose
     if not flow:
         return 0
     got = {k: e["value"] for k, e in flow.drafts.view(call)["fields"].items() if e["value"]}
-    case = next((c for c in load_cases() if c.get("demo") == path.stem), None)
+    case = next((c for c in load_cases() if path.stem in (c.get("demo"), c.get("recording"))), None)
     if not case:
         print(f"draft: {got}")
         return 0
