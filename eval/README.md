@@ -1,5 +1,7 @@
 # eval — measuring the real adapters
 
+Findings and decisions: [RESULTS.md](RESULTS.md).
+
 Only this folder calls the live APIs. Keys come from `.env`; results go to `eval/results/` and audio to `recordings/` (both git-ignored).
 
 | Command | Needs | What it measures |
@@ -7,7 +9,7 @@ Only this folder calls the live APIs. Keys come from `.env`; results go to `eval
 | `python -m pytest -q eval` | nothing | adapters against a fake WebSocket / HTTP server; harness runs with the keyword baseline |
 | `python -m eval decider --decider fake` | nothing | keyword baseline on `cases.json` |
 | `python -m eval decider [--order]` | `JEV_API_KEY` | Jev: right / wrong / held per field, threshold sweep for both confidence measures, latency; `--order` re-asks with options reversed |
-| `python -m eval decider --decider sonnet` | `ANTHROPIC_API_KEY` | same questions to Claude Sonnet (forced tool call, `eval/sonnet.py`) for a speed / accuracy comparison; no probabilities, so confidence is always 1.0 |
+| `python -m eval decider --decider sonnet` | `ANTHROPIC_API_KEY` | same questions to Claude Sonnet (JSON schema output, `eval/sonnet.py`) for a speed / accuracy comparison; no probabilities, so confidence is always 1.0 |
 | `python -m eval tts` | `ELEVENLABS_API_KEY` | writes `recordings/<demo>.wav` from `demo/calls/` (synthetic voice) |
 | `python -m eval stt recordings/2-correction.wav [--decide]` | `ELEVENLABS_API_KEY` (+ `JEV_API_KEY` with `--decide` and `CTQ_DECIDER=jev`) | segments, latency, WER against the demo text; with `--decide` the whole Flow, checked against `cases.json` |
 
