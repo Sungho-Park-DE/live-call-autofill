@@ -3,6 +3,7 @@
 Findings and decisions: [RESULTS.md](RESULTS.md).
 
 Only this folder calls the live APIs. Keys come from `.env`; results go to `eval/results/` and audio to `recordings/` (both git-ignored).
+The runs cited in [RESULTS.md](RESULTS.md) are kept in [`runs/`](runs/README.md); new runs go to the git-ignored `eval/results/`.
 
 | Command | Needs | What it measures |
 |---|---|---|
