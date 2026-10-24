@@ -29,6 +29,7 @@ class Field:
     prompt: str
     threshold: float
     options: tuple[tuple[str, str], ...] = ()  # (value, hint); empty = take from the catalog
+    ask: str = ""  # what the person can ask the caller while this field is still empty
 
 
 FIELDS: tuple[Field, ...] = (
@@ -41,14 +42,16 @@ FIELDS: tuple[Field, ...] = (
             ("parts quote", "quote, price, how much, order, need, send me, do you have"),
             ("other", "delivery, shipping, return, refund, payment, invoice, when will"),
         ),
+        ask="What is the call about?",
     ),
-    Field("car", "Car model", "Which car model is the caller talking about?", 0.6),
-    Field("zone", "Body zone", "Which part of the car is damaged?", 0.6),
-    Field("side", "Side", "Which side of the car?", 0.6),
-    Field("severity", "Damage", "How bad is the damage?", 0.6),
+    Field("car", "Car model", "Which car model is the caller talking about?", 0.6, ask="Which car model?"),
+    Field("zone", "Body zone", "Which part of the car is damaged?", 0.6, ask="Which part is damaged?"),
+    Field("side", "Side", "Which side of the car?", 0.6, ask="Which side?"),
+    Field("severity", "Damage", "How bad is the damage?", 0.6, ask="How bad is the damage?"),
 )
 
 REQUIRED: tuple[str, ...] = ("car", "zone", "severity")
+NO_QUOTE_INTENT = "other"  # an intent value that needs no quote fields, so nothing is asked
 
 # Companion zones from past accident cases (built by `python -m analysis`); CTQ_COMPANIONS=0 turns them off.
 ZONES_TABLE = ROOT / "app" / "data" / "zones.json"
@@ -57,3 +60,7 @@ COMPANIONS = os.environ.get("CTQ_COMPANIONS", "1") == "1"
 STT = os.environ.get("CTQ_STT", "fake")
 DECIDER = os.environ.get("CTQ_DECIDER", "fake")
 DEMO_SPEED = float(os.environ.get("CTQ_DEMO_SPEED", "1.0"))  # 0 = replay demo calls instantly
+
+# While the caller is still talking, decide again on the partial transcript at most this often (seconds).
+# 0 = decide only on final segments.
+PARTIAL_DECIDE_SECS = float(os.environ.get("CTQ_PARTIAL_DECIDE_SECS", "2.5"))

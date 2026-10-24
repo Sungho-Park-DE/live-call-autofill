@@ -160,6 +160,10 @@ async def evaluate(path: Path, speed: float = 1.0, decide: bool = False, verbose
         print(f"WER vs {demo_file.name}: {wer(reference, ' '.join(res['finals'])):.2%}")
     if not flow:
         return 0
+    problems = flow.view(call)["problems"]
+    if problems:
+        print(f"adapter problems during the call: {problems}")
+        return 1
     got = {k: e["value"] for k, e in flow.drafts.view(call)["fields"].items() if e["value"]}
     case = next((c for c in load_cases() if path.stem in (c.get("demo"), c.get("recording"))), None)
     if not case:

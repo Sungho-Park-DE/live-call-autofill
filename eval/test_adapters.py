@@ -84,6 +84,27 @@ def test_jev_bad_key_no_retry():
     assert len(calls) == 1
 
 
+def test_jev_warm_opens_the_connection_and_never_raises():
+    seen = []
+
+    def handler(request):
+        seen.append(request.method)
+        if len(seen) == 2:
+            raise httpx.ConnectError("down")
+        return httpx.Response(405)
+
+    d = jev(handler)
+    asyncio.run(d.warm())
+    asyncio.run(d.warm())
+    assert seen == ["HEAD", "HEAD"]
+
+
+def test_adapter_errors_share_the_port_error_types():
+    from app.adapters.ports import DeciderError, SpeechError
+
+    assert issubclass(JevError, DeciderError) and issubclass(ElevenLabsError, SpeechError)
+
+
 def test_jev_empty_transcript_makes_no_call():
     def handler(request):
         raise AssertionError("no call expected")

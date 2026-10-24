@@ -19,7 +19,7 @@ from typing import Any, Sequence
 
 import httpx
 
-from .ports import Answer, Question
+from .ports import Answer, DeciderError, Question
 
 log = logging.getLogger(__name__)
 
@@ -29,7 +29,7 @@ NOT_SAID = "not said yet"
 RETRY_STATUS = {429, 500, 502, 503, 504, 529}
 
 
-class JevError(RuntimeError):
+class JevError(DeciderError):
     pass
 
 
@@ -77,6 +77,15 @@ class JevDecider:
                              "If the caller corrects themselves, the later statement counts."),
             "criteria": criteria,
         }
+
+    async def warm(self) -> None:
+        """Opens the HTTPS connection before the first question, so the first answer does not pay for it."""
+        client = self._client or httpx.AsyncClient(timeout=self.timeout)
+        self._client = client
+        try:
+            await client.head(self.url, timeout=self.timeout)
+        except httpx.HTTPError:
+            log.info("Jev warm-up failed; the first question opens the connection")
 
     async def ask(self, transcript: str, questions: Sequence[Question]) -> dict:
         """One raw API call; returns the parsed JSON response."""

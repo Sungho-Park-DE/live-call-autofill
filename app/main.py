@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 from pathlib import Path
 from typing import AsyncIterator
 
@@ -13,12 +14,14 @@ from pydantic import BaseModel
 
 from app import settings
 from app.adapters import make_decider, make_speech
-from app.adapters.ports import Segment
+from app.adapters.ports import Segment, SpeechError
 from app.modules.call_v1 import CallClosed, UnknownCall
 from app.modules.catalog_v1 import UnknownChoice
 from app.modules.draft_v1 import DraftClosed, MissingFields
 from app.modules.quote_v1 import DuplicateQuote, EmptyQuote
 from app.syncs.flow import Flow
+
+log = logging.getLogger(__name__)
 
 STATIC = Path(__file__).parent / "static"
 DEMO_CALLS = settings.ROOT / "demo" / "calls"
@@ -46,7 +49,7 @@ def load_demo_calls() -> dict[str, dict]:
 
 
 def create_app(flow: Flow | None = None, stt_name: str | None = None) -> FastAPI:
-    app = FastAPI(title="call-to-quote")
+    app = FastAPI(title="live-call-autofill")
     app.state.flow = flow or Flow(make_decider(settings.DECIDER))
     app.state.stt_name = stt_name or settings.STT
     app.state.tasks = set()
@@ -80,8 +83,12 @@ def create_app(flow: Flow | None = None, stt_name: str | None = None) -> FastAPI
         }
 
     @app.post("/api/calls")
-    def start(body: StartBody):
-        return {"id": flow_().start_call(body.caller)}
+    async def start(body: StartBody):
+        call = flow_().start_call(body.caller)
+        task = asyncio.create_task(flow_().warm())
+        app.state.tasks.add(task)
+        task.add_done_callback(app.state.tasks.discard)
+        return {"id": call}
 
     @app.get("/api/calls/{call}")
     def view(call: str):
@@ -142,16 +149,30 @@ def create_app(flow: Flow | None = None, stt_name: str | None = None) -> FastAPI
                 yield chunk
 
         async def pump():
-            async for seg in stt.stream(audio_iter()):
+            try:
+                async for seg in stt.stream(audio_iter()):
+                    try:
+                        await flow_().hear(call, seg)
+                    except (CallClosed, DraftClosed):
+                        break
+            except SpeechError as e:  # ReportAdapterProblem: the call stays open, the person can type or press Mic again
+                log.warning("speech-to-text %s failed for %s: %s", stt.name, call, e)
+                flow_().report_problem(call, "speech", str(e))
                 try:
-                    await flow_().hear(call, seg)
-                except (CallClosed, DraftClosed):
-                    break
+                    await ws.send_json({"type": "error", "source": "speech", "message": str(e)})
+                except Exception:
+                    pass
 
+        flow_().clear_problem(call, "speech")
         consumer = asyncio.create_task(pump())
         try:
-            while True:
-                msg = await ws.receive()
+            while not consumer.done():
+                receiving = asyncio.ensure_future(ws.receive())
+                await asyncio.wait({receiving, consumer}, return_when=asyncio.FIRST_COMPLETED)
+                if not receiving.done():
+                    receiving.cancel()
+                    break
+                msg = receiving.result()
                 if msg.get("bytes"):
                     await chunks.put(msg["bytes"])
                 elif msg.get("text") == "end" or msg["type"] == "websocket.disconnect":
@@ -161,6 +182,10 @@ def create_app(flow: Flow | None = None, stt_name: str | None = None) -> FastAPI
         finally:
             await chunks.put(None)
             await consumer
+            try:
+                await ws.close()
+            except Exception:
+                pass
 
     @app.get("/")
     def index():

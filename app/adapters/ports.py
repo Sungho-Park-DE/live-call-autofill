@@ -11,6 +11,14 @@ from typing import AsyncIterator, Protocol, Sequence
 AUDIO_SAMPLE_RATE = 16_000
 
 
+class SpeechError(RuntimeError):
+    """A SpeechToText adapter lost its service (network, auth, server error). The call itself goes on."""
+
+
+class DeciderError(RuntimeError):
+    """A Decider adapter could not answer (network, auth, rate limit). The draft keeps its values."""
+
+
 @dataclass(frozen=True)
 class Segment:
     text: str

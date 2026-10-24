@@ -19,7 +19,7 @@ import os
 from typing import Any, AsyncIterator, Callable, Sequence
 from urllib.parse import urlencode
 
-from .ports import AUDIO_SAMPLE_RATE, Segment
+from .ports import AUDIO_SAMPLE_RATE, Segment, SpeechError
 
 log = logging.getLogger(__name__)
 
@@ -31,7 +31,7 @@ HARMLESS = {"warning", "commit_throttled", "insufficient_audio_activity"}
 FINAL_TYPES = {"committed_transcript", "committed_transcript_with_timestamps"}
 
 
-class ElevenLabsError(RuntimeError):
+class ElevenLabsError(SpeechError):
     pass
 
 
