@@ -134,3 +134,7 @@ With real engines: set `CTQ_STT=elevenlabs`, `CTQ_DECIDER=jev` and the keys in `
 ## Data and privacy
 
 All car names, part numbers and calls in this repository are invented. No real customer audio or transcripts are stored here. In production, sending call audio to outside services is a data-protection decision that has to be made with the business owner, and customers have to be told.
+
+---
+
+I built this locally and published it in 10/2026, so the history here starts on the day it went public.
