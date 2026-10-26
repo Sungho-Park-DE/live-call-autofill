@@ -81,6 +81,7 @@ Measured on the dealer's own sales data and running tool (not in this repository
 |---|---|---|
 | Grouping invoices into accidents (claim + same car within 30 days) | about 3% of claim groups were merged into an earlier accident | 5 years of sales |
 | Accidents with more than one invoice | 49%; 20% of part lines came on a later invoice | same 5 years |
+| Same grouping with a 7-, 14- or 60-day window instead of 30 | number of accidents within ±1% of the 30-day value; the 49% and 20% stay at about 49% and 20%. At 60 days, accidents spanning more than 45 days double, so the window stays at 30 days | same 5 years |
 | Side-only accidents (doors, mirror, sill — no front or rear core part) | 13% of accidents, more than front + rear together (5%) | same 5 years |
 | Pre-filled parts at the old **50%** threshold: correct / share of sold parts caught | 70–85% correct, but only 30–55% caught | 5 years, one high-volume model |
 | Backtest of the quote tool: part number exactly as sold, parts-catalog lookup vs sales history only | **230/237 (97%)** vs 193/237 (81%) | 19 recent accidents, 237 sold lines |
