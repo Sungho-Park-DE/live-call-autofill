@@ -8,10 +8,10 @@ A live phone call is turned into text (speech-to-text), a fast *decision model* 
 
 ![Demo: a caller corrects "left" to "right", the draft follows, and the damage level still missing is listed as a question to ask](docs/img/demo-correction.png)
 
-> Status: the pipeline, the human-in-the-loop form and the keyless demo work and are tested. The real speech-to-text (ElevenLabs Scribe v2 Realtime) and decision-model (Jev) adapters are built and measured on staged English test calls: [eval/RESULTS.md](eval/RESULTS.md). Not done: narrowband phone audio, other languages, a real catalog; see [Roadmap](#roadmap).
+> Status: the pipeline, the human-in-the-loop form and the keyless demo work and are tested. The real speech-to-text (ElevenLabs Scribe v2 Realtime) and decision-model (Jev) adapters are built and measured on English test calls (written scripts and synthetic speech): [eval/RESULTS.md](eval/RESULTS.md). Not done: narrowband phone audio, other languages, a real catalog; see [Roadmap](#roadmap).
 
-**What was measured** (22 labelled calls, 102 checks, mostly written by me; 4 staged recordings, English only):
-- Jev filled 74–75 of the 78 field values the caller gave before hang-up, **0 wrong**; all 24 fields that should stay empty stayed empty. At that sample size "0 wrong" bounds the true error rate only loosely (about 3 %).
+**What was measured** (22 labelled calls, 102 checks, mostly written by me; 4 synthetic recordings, English only):
+- Jev filled 74–75 of the 78 field values the caller gave before hang-up, **0 wrong**; all 24 fields that should stay empty stayed empty. Too few calls, mostly written by me, to put a tight number on the error rate: the 102 checks sit inside 22 calls, and the three runs repeat the same model.
 - A general LLM (Claude Sonnet 5.5) also had 0 wrong in the same test (77 right); Jev was about 3.5× faster (0.43 s vs 1.5 s per decision), which is what makes re-deciding every few seconds practical. Whether Sonnet's missing probability causes wrong fills in practice was not measured.
 - Deciding on partial speech brought the moment the draft held every expected field forward by 4–23 s on the 4 recordings, with the same final draft and no wrong value shown.
 
@@ -125,7 +125,7 @@ With real engines: set `CTQ_STT=elevenlabs`, `CTQ_DECIDER=jev` and the keys in `
 
 ## Roadmap
 
-- [x] ElevenLabs Scribe v2 Realtime adapter and Jev adapter, measured on staged English test calls ([eval/RESULTS.md](eval/RESULTS.md))
+- [x] ElevenLabs Scribe v2 Realtime adapter and Jev adapter, measured on English test calls ([eval/RESULTS.md](eval/RESULTS.md))
 - [x] Keyword boosting with the catalog's own words (`ELEVENLABS_KEYTERMS`), decisions on partial speech, notices instead of a dropped call when a service fails
 - [ ] Narrowband (8 kHz) phone audio, other accents and languages: not measured
 - [ ] Number of Jev calls per minute with partial decisions (cost), and less flicker on fields near the threshold

@@ -12,9 +12,9 @@ still talking. Not measured: the agent's time saved (that needs a study with rea
 
 - **Filled before hang-up:** of 78 field values the caller gave, Jev filled 74–75 (95 %), **0 wrong**;
   all 24 fields that should stay empty stayed empty.
-- **Read with the limits:** 22 labelled calls, 102 checks, mostly written by us; 4 staged recordings
-  by one speaker pair, English only, 16 kHz. "0 wrong" bounds the true error rate only loosely
-  (about 3 % at 95 % confidence, rule of three). Details in section 5.
+- **Read with the limits:** 22 labelled calls, 102 checks, mostly written by us; 4 synthetic recordings
+  (generated speech, no real calls), English only, 16 kHz. Too few calls to put a tight number on the
+  error rate; see section 5.
 - **Why during the call and not after it:** a general LLM after hang-up also saves typing, and only
   ~2 s later. What it cannot do is show *during* the call what is still missing, so the agent asks
   now instead of calling back. Jev's held fields are exactly that list.
@@ -31,8 +31,8 @@ still talking. Not measured: the agent's time saved (that needs a study with rea
   on and off while the caller talks, and the number of Jev calls per minute was not measured.
 
 **Setup.** 22 labelled calls in [`cases.json`](cases.json): 18 invented (3 scripted demos + 15 short
-ones) and 4 recorded test calls (`audio_samples/`: staged calls read by two people in English, one mono
-track, 57–70 s each; no customer audio).
+ones) and 4 recorded test calls (`audio_samples/`: synthetic speech generated from written scenarios,
+English, one mono track, 57–70 s each; no real calls, no customer audio).
 102 checks in total (field value after the whole call, plus checkpoints mid-call, e.g. the side
 must be `left` before the caller corrects it and `right` after). 58 decider calls per run.
 
@@ -125,11 +125,12 @@ about 1.4 s in the background. Later decides take 0.44 s either way.
 
 ## 5. Limits
 
-- 102 checks, mostly written by us. "0 wrong" bounds the error rate only loosely (≈3 % at 95 %
-  confidence, rule of three).
+- 102 checks, mostly written by us. They are not independent: they sit inside 22 calls, and the three
+  runs repeat the same model (p50 427 ms every run). Counted per call, the rule of three only says the
+  error rate is probably under about 14 %. "0 wrong" says little about real calls.
 - Section 4b is one run per recording and setting, and "no wrong value" was judged by reading the
   timelines, not by a scored checkpoint.
-- 4 recorded test calls, one speaker pair, **English only**, mono, 16 kHz. Other languages, accents
+- 4 recorded test calls, synthetic speech, **English only**, mono, 16 kHz. Real phone voices are **not measured**. Other languages, accents
   and narrowband phone audio (8 kHz) are **not measured**; results may not carry over.
 - Latency measured from the developer's PC only; cost not measured.
 - The recording cases freeze one STT run as their lines; a different VAD setting changes the line

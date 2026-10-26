@@ -1,6 +1,6 @@
 # eval/runs — raw outputs cited in RESULTS.md
 
-Copies of the measurement JSONs behind the tables in [../RESULTS.md](../RESULTS.md) (staged test calls only, no customer data).
+Copies of the measurement JSONs behind the tables in [../RESULTS.md](../RESULTS.md) (written and synthetic test calls only, no customer data).
 
 | File | Backs |
 |---|---|
