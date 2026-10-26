@@ -49,7 +49,7 @@ def load_demo_calls() -> dict[str, dict]:
 
 
 def create_app(flow: Flow | None = None, stt_name: str | None = None) -> FastAPI:
-    app = FastAPI(title="live-call-autofill")
+    app = FastAPI(title="mid-call-autofill")
     app.state.flow = flow or Flow(make_decider(settings.DECIDER))
     app.state.stt_name = stt_name or settings.STT
     app.state.tasks = set()

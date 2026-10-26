@@ -1,8 +1,10 @@
-# live-call-autofill
+# mid-call-autofill
 
 **While a customer is still on the phone, the quote form fills itself in — and the person on the call has the last word.**
 
 A live phone call is turned into text (speech-to-text), a fast *decision model* picks the car, body zone, side and damage level from fixed lists, and the parts quote is pre-filled as **suggestions**. Nothing is sent until the person confirms. Anything the person types is never overwritten by the machine.
+
+**Mid-call, not after the call.** There is no recording to process after hang-up: the draft is re-decided after every sentence and every few seconds of partial speech, so the person can check the suggestions and ask what is still missing before the caller hangs up.
 
 ![Demo: a caller corrects "left" to "right", the draft follows, and the damage level still missing is listed as a question to ask](docs/img/demo-correction.png)
 
